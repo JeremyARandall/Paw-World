@@ -1,4 +1,4 @@
-const express = require("express");
+/*const express = require("express");
 const app = express();
 const cors = require("cors");
 require("dotenv").config({ path: "./config.env" });
@@ -17,3 +17,4 @@ app.listen(port, () => {
   });
   console.log(`Server is running on port: ${port}`);
 });
+*/
