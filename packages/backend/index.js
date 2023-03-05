@@ -2,11 +2,11 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import postRoutes from './routes/posts.js';
+import productRoutes from './routes/product.js';
 
 const app = express();
 
-app.use('/posts', postRoutes);
+app.use('/posts', productRoutes);
 
 app.use(bodyParser.json({limite: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({limite: "30mb", extended: true}));
