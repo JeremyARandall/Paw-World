@@ -16,6 +16,6 @@ const productSchema = mongoose.Schema({
    }, 
 });
 
-const ProductMessage = mongoose.model('ProductMessage', productSchema);
+const productMessage = mongoose.model('ProductMessage', productSchema);
 
-export default ProductMessage;
+export default productMessage;

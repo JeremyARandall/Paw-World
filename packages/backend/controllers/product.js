@@ -1,10 +1,10 @@
-import ProductMessage from '../models/productMessage.js';
+import productMessage from '../models/productMessage.js';
 
 export const getProducts = async (req, res) =>{
     try{
         const productMessages = await productMessage.find();
         
-        res.status(200).json(productMessages);
+        res.status(200).json(productMessage);
     }
     catch (error){
         res.status(404).json({message: error.message});
@@ -14,7 +14,7 @@ export const getProducts = async (req, res) =>{
 export const createProducts = async(req, res) =>{
     const product = req.body;
 
-    const newProduct = new PostMessage(product);
+    const newProduct = new productMessage(product);
     try{
         await newProduct.save();
         res.status(201).json(newProduct);
