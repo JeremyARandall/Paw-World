@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@mui/material';
+import { useDispatch } from 'react-redux';
 
+import { getProduct } from './actions/product';
 import Products from './Components/Products/Products';
 import Form from './Components/Form/Form';
-import useStyles from './styles'
+import useStyles from './styles';
 
 const App = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProduct());
+  }, [dispatch]);
 
   return (
     <Container maxWidth="lg">

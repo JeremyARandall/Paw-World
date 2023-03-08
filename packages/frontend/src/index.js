@@ -1,5 +1,6 @@
 import React from "react";
-import { ReactDOM } from "react";
+//import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom/client';
 import { legacy_createStore as createStore} from 'redux'
 
 import { Provider } from "react-redux";
@@ -9,10 +10,13 @@ import reducers from './reducers';
 
 import App from './App';
 
+const container = document.getElementById('app');
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
-
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root'));
+//const root = createRoot(container);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+)

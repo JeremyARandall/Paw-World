@@ -6,11 +6,12 @@ import productRoutes from './routes/product.js';
 
 const app = express();
 
-app.use('/posts', productRoutes);
 
 app.use(bodyParser.json({limite: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({limite: "30mb", extended: true}));
 app.use(cors());
+
+app.use('/posts', productRoutes);
 
 const CONNECTION_URL = "mongodb+srv://Dev:klhMJYV0DbUsApH3@cluster0.vaxsq2h.mongodb.net/?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
