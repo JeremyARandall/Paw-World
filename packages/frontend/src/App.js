@@ -6,6 +6,8 @@ import { styled } from '@mui/material/styles';
 import { getProduct } from './actions/product';
 import Products from './Components/Products/Products';
 import Form from './Components/Form/Form';
+import Signup from './components/signup';
+import ResponsiveAppBar from './components/appbar';
 //import useStyles from './styles';
 
 const PREFIX = 'App';
@@ -39,27 +41,8 @@ const App = () => {
     dispatch(getProduct());
   }, [dispatch]);
 
-  return (
-    <Root className={classes.root}>
-    <Container maxWidth="lg">
-      <AppBar className={classes.appBar} position='static' color='inherit'>
-        <Typography className={classes.heading} variant='h2' align='center'>Products</Typography>
-      </AppBar>
-      <Grow in>
-        <Container>
-          <Grid container justify='space-between' alignItems='stretch' spacing={3}>
-            <Grid item xs={12} sm={7}>
-            <Products />
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Form />
-            </Grid>
-          </Grid>
-        </Container>
-      </Grow>
-    </Container>
-    </Root>
-  );
+
+
 }
 
 export default App;
