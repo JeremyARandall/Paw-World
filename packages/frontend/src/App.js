@@ -52,7 +52,7 @@ function App() {
     <div className='App'>
       <ResponsiveAppBar /*App bar on top will be displayed on all page when put outside the router *//>
       <main>
-        //
+        
         <Routes /*all routes within the router have a path(portion behind URL), and an element associated with it, which is the page pulled from Components */>
           <Route path="/signup" element={<Signup/>} /* going to localhost:3000/signup will bring the signup page from ./Compenents/signup.js that was imported*//>
           <Route path="/products" element={<Products />}/>
