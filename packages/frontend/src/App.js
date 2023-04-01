@@ -6,8 +6,8 @@ import { styled } from '@mui/material/styles';
 import { getProduct } from './actions/product';
 import Products from './Components/Products/Products';
 import Form from './Components/Form/Form';
-import Signup from './components/signup';
-import ResponsiveAppBar from './components/appbar';
+import Signup from './Components/signup';
+import ResponsiveAppBar from './Components/appbar';
 //import useStyles from './styles';
 
 const PREFIX = 'App';
@@ -33,7 +33,7 @@ const Root = styled(`div`)(({ theme }) => ({
   },
 }))
 
-const App = () => {
+/*const App = () => {
  // const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -43,6 +43,14 @@ const App = () => {
 
 
 
+}*/
+function App() {
+  return (
+    <div className='App'>
+      <ResponsiveAppBar></ResponsiveAppBar>
+      <Signup/>
+    </div>
+  )
 }
 
 export default App;
