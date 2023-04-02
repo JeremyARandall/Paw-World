@@ -2,9 +2,10 @@ import mongoose from 'mongoose';
 
 const productSchema = mongoose.Schema({
 	name: String,
-	id: Number,
+	id: { type: String, require: true, unique: true },
 	description: String,
 	brand: String,
+	price: Number,
 	tags: [String],
 	productImage: String,
 	stockRemaining: {
@@ -14,9 +15,9 @@ const productSchema = mongoose.Schema({
 	dateCreated: {
 		type: Date,
 		default: new Date()
-	}, 
+	},
 });
 
-const productMessage = mongoose.model('ProductMessage', productSchema);
+var Product = mongoose.model('Product', productSchema);
 
-export default productMessage;
+export default Product;

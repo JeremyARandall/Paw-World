@@ -1,14 +1,14 @@
 import React from 'react'
-import {Avatar, Button, Grid, Paper, TextField, Typography} from '@mui/material'
+import { Avatar, Button, Grid, Paper, TextField, Typography } from '@mui/material'
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
-const Signup=()=>{
-const paperStyle = {padding:'30px 20px', width: 500, margin: '20px auto'}
-const headerStyle = {margin: '0'}
-const avatarStyle = {backgroundColor: 'green'}
-    return(
+const Signup = () => {
+    const paperStyle = { padding: '30px 20px', width: 500, margin: '20px auto' }
+    const headerStyle = { margin: '0' }
+    const avatarStyle = { backgroundColor: 'green' }
+    return (
         <Grid>
-            <Paper elevation = {20} style = {paperStyle}>
-                <Grid align= 'center'>
+            <Paper elevation={20} style={paperStyle}>
+                <Grid align='center'>
                     <Avatar style={avatarStyle}>
                         <AddCircleOutlineOutlinedIcon></AddCircleOutlineOutlinedIcon>
                     </Avatar>
@@ -16,13 +16,13 @@ const avatarStyle = {backgroundColor: 'green'}
                     <Typography variant='caption'>Please fill out this form to create an account.</Typography>
                 </Grid>
                 <form>
-                    <TextField fullWidth label='Email'></TextField>      
-                    <TextField fullWidth label = 'Password'></TextField>      
+                    <TextField fullWidth label='Email'></TextField>
+                    <TextField fullWidth label='Password'></TextField>
                     <Button type='submit' variant='contained' color='primary'>Sign Up</Button>
                 </form>
             </Paper>
         </Grid>
-        
+
     )
 }
 

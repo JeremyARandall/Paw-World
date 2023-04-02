@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import productReducer from './product';
 
 
-export default combineReducers({
+const reducers = combineReducers({
     product: productReducer,
 });
+export default reducers;
