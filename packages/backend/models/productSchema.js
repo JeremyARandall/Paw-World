@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+//lays out formatting for products within DB.
 const productSchema = mongoose.Schema({
 	name: String,
 	description: String,

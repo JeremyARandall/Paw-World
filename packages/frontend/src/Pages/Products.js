@@ -1,18 +1,9 @@
 import React, { useEffect, useReducer, } from 'react';
 import Product from '../Components/Product/Product';
 import * as api from '../api';
-import {
-
-  Grid,
-
-} from '@mui/material';
+import { Grid, } from '@mui/material';
 
 import logger from 'use-reducer-logger';
-
-//import { getProducts } from '../actions/product';
-//import { useDispatch, useSelector } from 'react-redux';
-//import { Link } from 'react-router-dom';
-//import reducers from '../reducers/index';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -28,9 +19,7 @@ const reducer = (state, action) => {
 }
 
 const ProductsPage = () => {
-  //const [products, setProducts] = useState([])
 
-  //const dispatch = useDispatch();
   const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
     products: [],
     loading: true,
@@ -38,7 +27,7 @@ const ProductsPage = () => {
   })
 
   useEffect(() => {
-    //  getProducts()
+
     const getProducts = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {

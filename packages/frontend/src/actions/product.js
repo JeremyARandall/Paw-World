@@ -1,3 +1,4 @@
+//not currently used, this code is now withing the Page code
 import * as api from '../api';
 
 export const getProducts = () => async (dispatch) => {
