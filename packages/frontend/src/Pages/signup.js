@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import { Avatar, Button, Grid, Paper, TextField, Typography } from '@mui/material'
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 
@@ -19,7 +19,7 @@ const Signup = () => {
     const headerStyle = { margin: '0' }
     const avatarStyle = { backgroundColor: 'green' }
 
-    const [{loading, error, loggedIn, signUp, user }, dispatch] = usereducer(userReducer, {
+    const [{loading, error, loggedIn, signUp, user }, dispatch] = useReducer(userReducer, {
         loading: true,
         error: '',
         loggedIn: false,
