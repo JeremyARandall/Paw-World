@@ -1,10 +1,31 @@
 import React from 'react'
 import { Avatar, Button, Grid, Paper, TextField, Typography } from '@mui/material'
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+
+const userReducer = (state, action) => {
+    switch (action.type) {
+        case 'FETCH_REQUEST':
+          return { ...state, loading: true };
+        case 'FETCH_SUCCESS':
+          return { ...state, products: action.payload, loading: false };
+        case 'FETCH_FAIL':
+          return { ...state, loading: false, error: action.payload };
+        default:
+          return state;
+    }
+}
 const Signup = () => {
     const paperStyle = { padding: '30px 20px', width: 500, margin: '20px auto' }
     const headerStyle = { margin: '0' }
     const avatarStyle = { backgroundColor: 'green' }
+
+    const [{loading, error, loggedIn, signUp, user }, dispatch] = usereducer(userReducer, {
+        loading: true,
+        error: '',
+        loggedIn: false,
+        signUp: true,
+        user: {},
+    })
     return (
         <Grid>
             <Paper elevation={20} style={paperStyle}>

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const accountSchema = mongoose.Schema({
+const userSchema = mongoose.Schema({
 	username: String,
 	passwordHash: String,
 	email: String,
@@ -12,6 +12,6 @@ const accountSchema = mongoose.Schema({
 	isAdmin: boolean
 });
 
-const accountMessage = mongoose.model('AccountMessage', accountSchema);
+const User = mongoose.model('User', userSchema);
 
-export default accountMessage;
+export default User;
