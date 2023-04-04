@@ -9,7 +9,8 @@ import ProductsPage from './Pages/Products';
 import Form from './Components/Form/Form';
 import Signup from './Pages/signup';
 import ResponsiveAppBar from './Components/appbar';
-import Product from './Components/Product/Product';
+
+import ProductPage from './Pages/ProductPage';
 //import useStyles from './styles';
 
 
@@ -26,7 +27,7 @@ function App() {
             <Route path="/signup" element={<Signup />} /* going to localhost:3000/signup will bring the signup page from ./Compenents/signup.js that was imported*/ />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/addproducttest" element={<Form />} />
-            <Route path="/product/:id" element={<Product />} />
+            <Route path="/products/:id" element={<ProductPage />} />
           </Routes>
         </main>
 

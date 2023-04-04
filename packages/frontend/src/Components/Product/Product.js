@@ -13,11 +13,11 @@ const Product = (props) => {
   const { product } = props;
   return (
     <Card className="product">
-      <Link to={`/product/${product.id}`}>
-        <CardMedia image={product.image} alt={product.name} />
+      <Link to={`/products/${product._id}`}>
+        <CardMedia component="img" image={product.image} alt={product.name} height="200" />
       </Link>
       <CardContent className="product-info">
-        <Link to={`/product/${product.id}`}>
+        <Link to={`/products/${product._id}`}>
           <Typography className='productName'>{product.name}</Typography>
         </Link>
         <Typography className='pricing'>

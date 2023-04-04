@@ -9,7 +9,7 @@ const Form = () => {
     //    const classes = useStyles();
     const dispatch = useDispatch();
     const [productData, setProductData] = useState({
-        name: '', id: '', description: '', brand: '', price: 0, tags: [], productImage: '', stockRemaining: 0
+        name: '', description: '', brand: '', price: 0, tags: [], productImage: '', stockRemaining: 0
     });
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,7 +25,6 @@ const Form = () => {
             <form autoComplete="off" noValidate onSubmit={handleSubmit}>
                 <Typography variant="h6" >Creating a Product</Typography>
                 <TextField name="name" variant="outlined" label="Product Name" fullWidth value={productData.name} onChange={(e) => setProductData({ ...productData, name: e.target.value })} />
-                <TextField name="id" variant="outlined" label="id" fullWidth value={productData.id} onChange={(e) => setProductData({ ...productData, id: e.target.value })} />
                 <TextField name="description" variant="outlined" label="Description" fullWidth value={productData.description} onChange={(e) => setProductData({ ...productData, description: e.target.value })} />
                 <TextField name="brand" variant="outlined" label="Brand" fullWidth value={productData.brand} onChange={(e) => setProductData({ ...productData, brand: e.target.value })} />
                 <TextField name="price" variant="outlined" label="Price" fullWidth value={productData.price} onChange={(e) => setProductData({ ...productData, price: e.target.value })} />

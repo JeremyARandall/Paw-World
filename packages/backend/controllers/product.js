@@ -3,8 +3,6 @@ import Product from '../models/productSchema.js';
 export const getProducts = async (req, res) => {
 
     try {
-
-
         const products = await Product.find({}); //have the DB find products
         res.json(products); //return the products to calling function
     }
@@ -16,8 +14,12 @@ export const getProducts = async (req, res) => {
 
 export const getProductById = async (req, res) => {
     try {
-        const product = await Product.find(req.params.id); //find product by its id and respond with it in json form
-        res.json(product);
+        const product = await Product.findById(req.params.id); //find product by its id and respond with it in json form
+        if (product) {
+            res.send(product);
+        } else {
+            res.status(404).send({ message: 'Product Not Found' });
+        }
     } catch (error) {
         console.error(error); //write error
         res.status(500).json({ message: error.message });

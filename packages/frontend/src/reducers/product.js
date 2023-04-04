@@ -1,8 +1,8 @@
 // eslint-disable-next-line import/no-anonymous-default-export
-import { FETCH_ALL, CREATE, UPDATE, DELETE } from '../constants/actionTypes';
+import { FETCH_ALL, CREATE, } from '../constants/actionTypes';
 
 const productReducer = (products = [], action) => {
-    switch(action.type) {
+    switch (action.type) {
         case FETCH_ALL:
             return action.payload;
         case CREATE:
