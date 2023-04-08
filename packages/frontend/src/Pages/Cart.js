@@ -1,9 +1,11 @@
-import { Alert, Grid, List, ListItem } from "@mui/material";
+import { Alert, Avatar, Grid, List, ListItem, ListItemAvatar } from "@mui/material";
 import { useContext } from "react"
 import { Store } from "../Store";
-
+import { Link, useNavigate } from 'react-router-dom';
+import * as api from '../api';
 
 export default function Cart() {
+    const navigate = useNavigate();
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const {
         cart: { cartItems },
@@ -20,14 +22,17 @@ export default function Cart() {
                         (
                             <List>
                                 {cartItems.map((item) => {
-                                    <ListItem key={item._id}>
-                                        {item.name}
+                                    return <ListItem key={item._id}>
+                                        <ListItemAvatar sx={4}>
+                                            <Avatar src={item.productImage} alt={item.name}></Avatar>
+                                        </ListItemAvatar>
+                                        <Link to={`/products/${item._id}`}>{`${item.id}`}</Link>
                                     </ListItem>
                                 })}
                             </List>
                         )}
                 </Grid>
-                <Grid item xd={8}>
+                <Grid item xs={4}>
 
                 </Grid>
             </Grid>
