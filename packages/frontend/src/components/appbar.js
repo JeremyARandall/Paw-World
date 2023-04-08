@@ -13,6 +13,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import PetsIcon from '@mui/icons-material/Pets';
 import styles from './appbar.css'
+import { Store } from '../Store';
+import { Badge } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const pages = ['Products', 'Cart'];
 const settings = ['Sign Up', 'Login', 'Logout'];
@@ -36,6 +39,8 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  const { state } = React.useContext(Store);
+  const { cart } = state;
   return (
     <AppBar position="static">
       <Container maxWidth="xl" color="red">
@@ -89,8 +94,14 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+
+                <MenuItem key={page} onClick={handleCloseNavMenu} component={Link} href={`/${page}`}>
+                  <Typography textalign="center">{page}
+                    {page.match('Cart') && cart.cartItems.length > 0 && (
+                      <Badge badgeContent={cart.cartItems.length}>
+                      </Badge>
+                    )}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>

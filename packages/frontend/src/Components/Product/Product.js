@@ -2,7 +2,7 @@ import React from 'react';
 
 //import useStyles from './styles' //import the styles from styles.js in local folder
 //import { styled } from '@mui/material/styles'; //import for using styles
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Button, Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 
@@ -23,7 +23,7 @@ const Product = (props) => {
         <Typography className='pricing'>
           ${product.price}
         </Typography>
-        <button>Add to cart</button>
+
       </CardContent>
     </Card>
   );

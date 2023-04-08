@@ -50,6 +50,7 @@ const ProductsPage = () => {
           {products.map((product) => {  //takes each product from the array from getProducts and maps to Product components.
             return <Grid key={product._id} item>
               <Product product={product} />
+
             </Grid>;
           }
           )}

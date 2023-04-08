@@ -1,13 +1,16 @@
-import React, { useEffect, useReducer, } from 'react';
+import React, { useContext, useEffect, useReducer, } from 'react';
 import Product from '../Components/Product/Product';
 import * as api from '../api';
 import { useParams } from 'react-router-dom';
 import {
 
+  Button,
   Grid,
 
 } from '@mui/material';
 import logger from 'use-reducer-logger'; //logs State in console for devtools
+import { Store } from '../Store';
+
 
 //import { getProducts } from '../actions/product';
 //import { useDispatch, useSelector } from 'react-redux';
@@ -52,6 +55,17 @@ const ProductPage = () => {
     }
     getProductById();
   }, [id]);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { cart } = state;
+  const addToCartHandler = async () => {
+    const existItem = cart.cartItems.find((x) => x._id === product._id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    const { data } = await api.fetchProductById(id);
+    if (data.stockRemaining < quantity) {
+      window.alert('Sorry, the product is out of stock');
+    }
+    ctxDispatch({ type: 'ADD_TO_CART', payload: { ...product, quantity } })
+  }
   return ( //if loading is true, display "Loading", display error if error encountered (404, 500, etc), otherwise created a <Grid> embedding a <Product>
     loading ? (
       <div>Loading...</div>
@@ -60,6 +74,7 @@ const ProductPage = () => {
     ) : (
       <Grid container>
         <Product product={product} />
+        <Button onClick={addToCartHandler}> Add to Cart</Button>
       </Grid>
     )
   );

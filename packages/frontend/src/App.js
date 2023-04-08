@@ -1,4 +1,4 @@
-import { React, } from 'react';
+import { React, useContext, } from 'react';
 //import { Container, AppBar, Typography, Grow, Grid } from '@mui/material';
 //import { useDispatch } from 'react-redux';
 
@@ -9,13 +9,17 @@ import ProductsPage from './Pages/Products';
 import Form from './Components/Form/Form';
 import Signup from './Pages/signup';
 import ResponsiveAppBar from './Components/appbar';
+import Cart from './Pages/Cart';
 
 import ProductPage from './Pages/ProductPage';
+import { Store } from './Store';
 //import useStyles from './styles';
 
 
 
 function App() {
+  const { state } = useContext(Store);
+  const { cart } = state;
   return (
     //create the router
     <BrowserRouter>
@@ -28,6 +32,7 @@ function App() {
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/addproducttest" element={<Form />} /*current method to add products to db during development*/ />
             <Route path="/products/:id" element={<ProductPage />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </main>
 
