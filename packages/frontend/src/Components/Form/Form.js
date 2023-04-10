@@ -34,6 +34,7 @@ const Form = () => {
                 <TextField name="description" variant="outlined" label="Description" fullWidth value={productData.description} onChange={(e) => setProductData({ ...productData, description: e.target.value })} />
                 <TextField name="brand" variant="outlined" label="Brand" fullWidth value={productData.brand} onChange={(e) => setProductData({ ...productData, brand: e.target.value })} />
                 <TextField name="price" variant="outlined" label="Price" fullWidth value={productData.price} onChange={(e) => setProductData({ ...productData, price: e.target.value })} />
+                <TextField name="stockRemaining" variant="outlined" label="Stock Remaning" fullWidth value={productData.stockRemaining} onChange={(e) => setProductData({ ...productData, stockRemaining: e.target.value})} />
                 <TextField name="tags" variant="outlined" label="Tags (comma separated)" fullWidth value={productData.tags} onChange={(e) => setProductData({ ...productData, tags: e.target.value.split(',') })} />
                 <div ><FileBase type="file" multiple={false} onDone={({ base64 }) => setProductData({ ...productData, productImage: base64 })} /></div>
                 <Button variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
