@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useReducer, useContext, useEffect } from "react";
 import { TextField, Button, Typography, Paper } from "@mui/material";
 import FileBase from 'react-file-base64';
 import { useDispatch } from "react-redux";
 import { createProduct } from '../../actions/product';
-
+import { Store } from "../../Store";
+import * as api from '../../api';
 
 const Form = () => {
     //    const classes = useStyles();
-    const dispatch = useDispatch();
+
+    //const dispatch = useDispatch();
     const [productData, setProductData] = useState({
         name: '', description: '', brand: '', price: 0, tags: [], productImage: '', stockRemaining: 0
     });
-    const handleSubmit = (e) => {
-        e.preventDefault();
 
-        dispatch(createProduct(productData));
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await api.createProduct(productData);
+        } catch (err) {
+
+        }
     };
     const clear = () => {
 

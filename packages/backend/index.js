@@ -7,8 +7,8 @@ import productRoutes from './routes/product.js';
 const app = express();
 
 
-app.use(bodyParser.json({ limite: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limite: "30mb", extended: true }));
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use('/api/products', productRoutes);
