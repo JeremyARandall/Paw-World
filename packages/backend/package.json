@@ -1,17 +1,18 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "paw world backend",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.20.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "mongoose": "^6.9.1"
-  }
+	"name": "backend",
+	"version": "1.0.0",
+	"description": "paw world backend",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"start": "nodemon index.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.20.1",
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
+		"mongoose": "^6.9.1"
+	}
 }
