@@ -13,6 +13,7 @@ import Cart from './Pages/Cart';
 
 import ProductPage from './Pages/ProductPage';
 import { Store } from './Store';
+import Navbar from './navbar';
 //import useStyles from './styles';
 
 
@@ -24,7 +25,7 @@ function App() {
     //create the router
     <BrowserRouter>
       <div className='App'>
-        <ResponsiveAppBar /*App bar on top will be displayed on all page when put outside the router */ />
+        <Navbar /*App bar on top will be displayed on all page when put outside the router */ />
         <main>
 
           <Routes /*all routes within the router have a path(portion behind URL), and an element associated with it, which is the page pulled from Components */>
