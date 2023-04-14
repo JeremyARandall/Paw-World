@@ -46,7 +46,7 @@ const ProductsPage = () => {
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <Grid container sx={{ display: "flex", flexDirection: "column", alignItems: "left", backgroundColor: '#B3CAEB', padding: '1rem', borderRadius: '0.5rem' }}>
+        <Grid container sx={{ display: "flex", flexDirection: "column", alignItems: "left", backgroundColor: '#B3CAEB', padding: '1rem', borderRadius: '0.5rem', marginTop: '1rem' }}>
           {products.map((product) => {  //takes each product from the array from getProducts and maps to Product components.
             return <Grid key={product._id} item>
               <Product product={product} />
