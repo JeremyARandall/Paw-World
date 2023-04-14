@@ -73,7 +73,7 @@ const ProductPage = () => {
     ) : error ? (
       <div>{error}</div>
     ) : (
-  <Grid container sx={{backgroundColor: '#B3CAEB' , padding: '1rem', borderRadius: '0.5rem' }}>
+  <Grid container sx={{padding: '1rem', borderRadius: '0.5rem', align: 'right' }}>
     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: '#B3CAEB', padding: '1rem', borderRadius: '0.5rem' }}>
       <Product product={product}/>
       <Button id="addToCart" onClick={addToCartHandler} sx={{ 
@@ -81,7 +81,7 @@ const ProductPage = () => {
         boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', 
         '&:hover': { backgroundColor: '#9EB1CD' },
         height: '30px',
-        width: '400px'
+        width: 'auto'
       }}> Add to Cart</Button>
     </Box>
   </Grid>
