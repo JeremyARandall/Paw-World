@@ -12,7 +12,7 @@ const Product = (props) => {
   // const classes = useStyles();
   const { product } = props;
   return (
-    <Card className="product" sx={{ marginTop: '1rem', marginBottom: '1rem'}}>
+    <Card className="product" sx={{ margin: '1rem', marginBottom: '1rem' }}>
       <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", backgroundColor: '#EBF3FF', padding: '1rem', borderRadius: '0.5rem' }}>
       <Link to={`/products/${product._id}`}>
         <CardMedia component="img" image={product.productImage} alt={product.name} height="200"/>
