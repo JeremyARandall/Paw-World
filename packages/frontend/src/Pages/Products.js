@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, } from 'react';
 import Product from '../Components/Product/Product';
 import * as api from '../api';
-import { Grid, } from '@mui/material';
+import { Grid, Box, } from '@mui/material';
 
 import logger from 'use-reducer-logger';
 
@@ -46,11 +46,12 @@ const ProductsPage = () => {
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <Grid container>
+        <Grid container sx={{backgroundColor: '#B3CAEB' , padding: '1rem', borderRadius: '0.5rem' }}>
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: '#B3CAEB', padding: '1rem', borderRadius: '0.5rem' }}></Box>
           {products.map((product) => {  //takes each product from the array from getProducts and maps to Product components.
             return <Grid key={product._id} item>
               <Product product={product} />
-
+            
             </Grid>;
           }
           )}
