@@ -6,6 +6,7 @@ import {
 
   Button,
   Grid,
+  Box,
 
 } from '@mui/material';
 import logger from 'use-reducer-logger'; //logs State in console for devtools
@@ -72,9 +73,9 @@ const ProductPage = () => {
     ) : error ? (
       <div>{error}</div>
     ) : (
-      <Grid container>
+      <Grid container sx={{backgroundColor: '#B3CAEB' , padding: '1rem', borderRadius: '0.5rem', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', '&:hover': { backgroundColor: '#A9BFDE' } }}>
         <Product product={product} />
-        <Button onClick={addToCartHandler}> Add to Cart</Button>
+        <Button onClick={addToCartHandler} sx={{ marginTop: '1rem' }}> Add to Cart</Button>
       </Grid>
     )
   );
