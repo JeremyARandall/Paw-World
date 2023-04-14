@@ -74,7 +74,7 @@
 {
     background-color: #EBF3FF !important;
     margin-top: 1rem;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
     height: 30px;
     width: 200px;
     align-self: left;
@@ -86,4 +86,5 @@
 {
     background-color: #9EB1CD !important;
     transition: 0.5s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
