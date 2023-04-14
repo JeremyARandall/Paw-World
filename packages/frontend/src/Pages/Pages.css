@@ -79,9 +79,11 @@
     width: 200px;
     align-self: left;
     margin-left: 1rem !important;
+    color: rgb(0, 0, 0) !important;
 }
 
 .addToCartButton:hover
 {
     background-color: #9EB1CD !important;
+    transition: 0.5s;
 }
