@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useReducer, } from 'react';
 import Product from '../Components/Product/Product';
 import * as api from '../api';
 import { useParams } from 'react-router-dom';
+import './Pages.css';
 import {
 
   Button,
@@ -73,18 +74,10 @@ const ProductPage = () => {
     ) : error ? (
       <div>{error}</div>
     ) : (
-  <Grid container sx={{  alignItems: "center", justifyContent: "center", display: "grid", backgroundColor: '#B3CAEB', padding: '1rem', borderRadius: '0.5rem', marginTop: '1rem' }}>
-    <Box sx={{ display: "flex", height: '300px', flexDirection: "column", backgroundColor: '#B3CAEB', padding: '1rem', borderRadius: '0.5rem'}}>
+  <Grid container className="productPageGrid">
+    <Box className="productPageBox">
       <Product product={product} />
-      <Button id="addToCart" onClick={addToCartHandler} sx={{ 
-        backgroundColor: '#EBF3FF',
-        marginTop: '1rem', 
-        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', 
-        '&:hover': { backgroundColor: '#9EB1CD' },
-        height: '30px',
-        width: '200px',
-        alignSelf: 'center',
-      }}> Add to Cart</Button>
+      <Button onClick={addToCartHandler} className="addToCartButton" >Add to Cart</Button>
     </Box>
   </Grid>
     )

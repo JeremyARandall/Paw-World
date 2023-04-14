@@ -2,9 +2,9 @@ import React from 'react';
 
 //import useStyles from './styles' //import the styles from styles.js in local folder
 //import { styled } from '@mui/material/styles'; //import for using styles
-import { Button, Card, CardContent, CardMedia, Typography, Box, } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Box, } from '@mui/material';
 import { Link } from 'react-router-dom';
-
+import './Product.css';
 
 
 const Product = (props) => {
@@ -12,13 +12,13 @@ const Product = (props) => {
   // const classes = useStyles();
   const { product } = props;
   return (
-    <Card className="product" sx={{ margin: '1rem', marginBottom: '1rem' }}>
-      <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", backgroundColor: '#EBF3FF', padding: '1rem', borderRadius: '0.5rem' }}>
-      <Link to={`/products/${product._id}`}>
-        <CardMedia component="img" image={product.productImage} alt={product.name} sx={{ objectFit: 'cover', width: 'auto', height: '200px' }} />
+    <Card className="productCard">
+      <Box className="productBox">
+      <Link to={`/products/${product._id}`} >
+        <CardMedia className="productImage" component="img" image={product.productImage} alt={product.name} />
       </Link>
-      <CardContent className="product-info" sx={{ display: "flex", flexDirection: "column", alignItems: "left", padding: '20px'}}>
-        <Link to={`/products/${product._id}`} >
+      <CardContent className="productCardContent">
+        <Link to={`/products/${product._id}`} className="productLink">
           <Typography className='productName'>{product.name} </Typography>
         </Link>
         <Typography className='pricing'>

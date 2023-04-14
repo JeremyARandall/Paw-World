@@ -1,0 +1,47 @@
+.productCard 
+{
+    margin: 1rem;
+    margin-bottom: 1rem;
+}
+
+.productBox
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #EBF3FF;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.productImage
+{
+    object-fit: cover;
+    width: auto;
+    height: 200px;
+}
+
+.productCardContent
+{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.productLink
+{
+    border-bottom: 1px solid transparent !important;
+    color: rgb(0, 0, 0) !important;
+    height: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.5s;
+    margin-bottom: 1rem;
+}
+
+.productLink:hover
+{
+    color: rgb(0, 0, 0) !important;
+    border-bottom: 1px solid rgb(0, 0, 0) !important;
+    transition: 0.5s;
+}
