@@ -24,7 +24,6 @@ const Product = (props) => {
         <Typography className='pricing'>
           ${product.price}
         </Typography>
-
       </CardContent>
       </Box>
     </Card>
