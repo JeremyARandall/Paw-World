@@ -73,18 +73,17 @@ const ProductPage = () => {
     ) : error ? (
       <div>{error}</div>
     ) : (
-  <Grid container sx={{ display: "grid", gridTemplateColumns: 'repeat(2, 1fr)', backgroundColor: '#B3CAEB', padding: '1rem', borderRadius: '0.5rem', marginTop: '1rem' }}>
-    <Box sx={{ display: "flex", flexDirection: "column", backgroundColor: '#B3CAEB', padding: '1rem', borderRadius: '0.5rem'}}>
-      <Product product={product}/>
+  <Grid container sx={{  alignItems: "center", justifyContent: "center", display: "grid", backgroundColor: '#B3CAEB', padding: '1rem', borderRadius: '0.5rem', marginTop: '1rem' }}>
+    <Box sx={{ display: "flex", height: '300px', flexDirection: "column", backgroundColor: '#B3CAEB', padding: '1rem', borderRadius: '0.5rem'}}>
+      <Product product={product} />
       <Button id="addToCart" onClick={addToCartHandler} sx={{ 
         backgroundColor: '#EBF3FF',
         marginTop: '1rem', 
-        marginLeft: '1rem',
         boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', 
         '&:hover': { backgroundColor: '#9EB1CD' },
         height: '30px',
-        width: '300px',
-        alignSelf: 'left'
+        width: '200px',
+        alignSelf: 'center',
       }}> Add to Cart</Button>
     </Box>
   </Grid>

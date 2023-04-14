@@ -15,7 +15,7 @@ const Product = (props) => {
     <Card className="product" sx={{ margin: '1rem', marginBottom: '1rem' }}>
       <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", backgroundColor: '#EBF3FF', padding: '1rem', borderRadius: '0.5rem' }}>
       <Link to={`/products/${product._id}`}>
-        <CardMedia component="img" image={product.productImage} alt={product.name} height="200"/>
+        <CardMedia component="img" image={product.productImage} alt={product.name} sx={{ objectFit: 'cover', width: 'auto', height: '200px' }} />
       </Link>
       <CardContent className="product-info" sx={{ display: "flex", flexDirection: "column", alignItems: "left", padding: '20px'}}>
         <Link to={`/products/${product._id}`} >
