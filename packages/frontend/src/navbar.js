@@ -9,11 +9,11 @@ export default function Navbar() {
                 <Box className="siteTitle">
                     <Link to="/" className="site-title">Paw-world</Link>
                 </Box>
-                <Grid>
-                    <Link to="/products">Products</Link>
-                    <Link to="/cart">Cart</Link>
-                    <Link to="/addproducttest">Form</Link>
-                    <Link to="/signup">Signup</Link>
+                <Grid className="NavBarGrid">
+                    <Link className="productLinkBox" to="/products">Products</Link>
+                    <Link className="productLinkBox" to="/cart">Cart</Link>
+                    <Link className="productLinkBox" to="/addproducttest">Form</Link>
+                    <Link className="productLinkBox" to="/signup">Signup</Link>
                 </Grid>
             </Card>
         </nav>
