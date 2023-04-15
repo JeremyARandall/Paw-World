@@ -1,36 +1,21 @@
-import { Card, Grid } from "@mui/material"
+import { Card, Grid, Box } from "@mui/material"
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import './Navbar.css';
 
 export default function Navbar() {
     return (
         <nav className="nav">
-            <Grid>
-                <Link to="/" className="site-title">
-                    Paw-world
-                </Link>
-
+            <Card >
+                <Box className="siteTitle">
+                    <Link to="/" className="site-title">Paw-world</Link>
+                </Box>
                 <Grid>
-
-                    <CustomLink to="/products">Products</CustomLink>
-
-                    <CustomLink to="/cart">Cart</CustomLink>
-                    <CustomLink to="/addproducttest">Form</CustomLink>
-                    <CustomLink to="/signup">Signup</CustomLink>
+                    <Link to="/products">Products</Link>
+                    <Link to="/cart">Cart</Link>
+                    <Link to="/addproducttest">Form</Link>
+                    <Link to="/signup">Signup</Link>
                 </Grid>
-            </Grid>
+            </Card>
         </nav>
     )
-    function CustomLink({ to, children, ...props }) {
-        const resolvedPath = useResolvedPath(to)
-        const isActive = useMatch({ path: resolvedPath.pathname, end: true })
-
-        return (
-
-            <Card className={isActive ? "active" : ""} sx={{ padding: 4, color: 'blue' }}>
-                <Link to={to} {...props}>
-                    {children}
-                </Link>
-            </Card>
-        )
-    }
 }
