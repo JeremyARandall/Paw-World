@@ -14,17 +14,20 @@ const Product = (props) => {
   return (
     <Card className="productCard">
       <Box className="productBox">
-      <Link to={`/products/${product._id}`} >
-        <CardMedia className="productImage" component="img" image={product.productImage} alt={product.name} />
-      </Link>
-      <CardContent className="productCardContent">
-        <Link to={`/products/${product._id}`} className="productLink">
-          <Typography className='productName'>{product.name} </Typography>
+        <Link to={`/products/${product._id}`} >
+          <CardMedia className="productImage" component="img" image={product.productImage} alt={product.name} />
         </Link>
-        <Typography className='pricing'>
-          ${product.price}
-        </Typography>
-      </CardContent>
+        <CardContent className="productCardContent">
+          <Box className="brandWrapper">
+            <Typography className='brand'>{product.brand}</Typography>
+          </Box>
+          <Link to={`/products/${product._id}`} className="productLink">
+            <Typography className='productName'>{product.name} </Typography>
+          </Link>
+          <Box className="pricingWrapper">
+            <Typography className='pricing'>${product.price}</Typography>
+          </Box>
+        </CardContent>
       </Box>
     </Card>
   );
