@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useReducer, } from 'react';
 import Product from '../Components/Product/Product';
 import * as api from '../api';
 import { useParams } from 'react-router-dom';
+import './Pages.css';
 import {
 
   Button,
   Grid,
+  Box,
 
 } from '@mui/material';
 import logger from 'use-reducer-logger'; //logs State in console for devtools
@@ -68,14 +70,16 @@ const ProductPage = () => {
   }
   return ( //if loading is true, display "Loading", display error if error encountered (404, 500, etc), otherwise created a <Grid> embedding a <Product>
     loading ? (
-      <div>Loading...</div>
+      <div class="loading"></div>
     ) : error ? (
       <div>{error}</div>
     ) : (
-      <Grid container>
-        <Product product={product} />
-        <Button onClick={addToCartHandler}> Add to Cart</Button>
-      </Grid>
+  <Grid container className="productPageGrid">
+    <Box className="productPageBox">
+      <Product product={product} />
+      <Button onClick={addToCartHandler} className="addToCartButton" >Add to Cart</Button>
+    </Box>
+  </Grid>
     )
   );
 };

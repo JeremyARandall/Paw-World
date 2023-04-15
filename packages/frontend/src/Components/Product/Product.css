@@ -1,0 +1,108 @@
+.productPageGrid
+{
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.3) !important;
+}
+
+.productCard 
+{
+    margin: 1rem;
+    margin-bottom: 1rem;
+    transition: 0.4s;
+    border-radius: 0.5rem;
+}
+
+.productCard:hover
+{
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.4) !important;
+}
+
+.productCard:hover .productImage
+{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.productCard:hover .productLink
+{
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+.productBox
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f3f8ff;
+    padding: 1rem;
+    width: 350px;
+    height: 350px;
+}
+
+.brand
+{
+    font-weight: bold !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    bottom: 1rem !important;
+}
+
+.brandWrapper
+{
+    position: relative;
+    bottom: 0.5rem !important;
+}
+
+.pricing
+{
+    font-weight: bold !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: red;
+}
+
+.pricingWrapper
+{
+    position: relative;
+    top: 1rem !important;
+}
+
+.productImage
+{
+    object-fit: cover;
+    width: 350px;
+    height: 200px;
+    object-fit: contain !important;
+    transition: 0.4s;
+    border-radius: 0.5rem;
+}
+
+.productCardContent
+{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+}
+
+.productLink
+{
+    color: rgb(0, 0, 0) !important;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.productName
+{
+    border-bottom: 1px solid transparent !important;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    bottom: 1rem !important;
+}
+
+.productName:hover
+{
+    border-bottom: 1px solid rgb(0, 0, 0) !important;
+    transition: 0.4s;
+}
