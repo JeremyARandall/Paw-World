@@ -1,0 +1,49 @@
+.siteTitle
+{
+    text-transform: capitalize !important;
+    background-color: #375c8f;
+    text-align: center;
+    box-shadow: 0px -6px 13px rgba(0, 0, 0, 0.3) !important;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    height: 100px;
+}
+
+.site-title
+{
+    color:#f3f8ff !important;
+    font-size: 76px;
+    padding-top: 10rem !important;
+    text-decoration: none;
+}
+
+.productLinkBox
+{
+    width: 100px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    color:#f3f8ff !important;
+    border-bottom: 30px solid transparent !important;
+}
+
+.productLinkBox:hover
+{
+    transition: 0.4s;
+    border-bottom: 30px solid rgb(0, 0, 0) !important;
+}
+
+.NavBarGrid
+{
+    background-color: #375c8f !important;
+    margin-top: 0.05rem !important;
+    height: 28px;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.3) !important;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: center;
+}
