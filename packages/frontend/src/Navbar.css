@@ -20,22 +20,18 @@
 .productLinkBox
 {
     width: 100px;
-    height: 10px !important;
     font-size: 20px;
     text-align: center;
-    
+    font-weight: bold;
+    text-decoration: none;
+    color:#f3f8ff !important;
+    border-bottom: 30px solid transparent !important;
 }
 
 .productLinkBox:hover
 {
     transition: 0.4s;
-}
-
-.productLinkBox
-{
-    color:#f3f8ff !important;
-    text-decoration: none;
-    font-weight: bold;
+    border-bottom: 30px solid rgb(0, 0, 0) !important;
 }
 
 .NavBarGrid
