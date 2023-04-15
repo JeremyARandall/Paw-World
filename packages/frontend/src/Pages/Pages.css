@@ -96,3 +96,42 @@
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
     color: #f3f8ff !important;
 }
+
+@keyframes loading 
+{
+    0%{content: "Loading";}
+    5%{content: "Loading |";}
+    10%{content: "Loading   |   |";}
+    15%{content: "Loading   |   |   |";}
+    20%{content: "Loading   |   |   |   |";}
+    25%{content: "Loading   |   |   |   |   |";}
+    30%{content: "Loading   |   |   |   |   |   |";}
+    35%{content: "Loading   |   |   |   |   |   |   |";}
+    40%{content: "Loading   |   |   |   |   |   |   |   |";}
+    50%{content: "Loading   |   |   |   |   |   |   |   |   |";}
+    55%{content: "Loading   |   |   |   |   |   |   |   |   |   |";}
+    60%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |";}
+    65%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |";}
+    70%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |   |";}
+    75%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |   |   |";}
+    80%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |";}
+    85%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |";}
+    90%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |";}
+    95%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |";}
+}
+
+.loading::after
+{
+    content: "Loading";
+    animation: loading 2s infinite;
+}
+
+.loading
+{
+    font-weight: bold;
+    text-align: left;
+    padding: 1rem;
+    background-color: #B2CAEB;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}

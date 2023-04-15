@@ -70,7 +70,7 @@ const ProductPage = () => {
   }
   return ( //if loading is true, display "Loading", display error if error encountered (404, 500, etc), otherwise created a <Grid> embedding a <Product>
     loading ? (
-      <div>Loading...</div>
+      <div class="loading"></div>
     ) : error ? (
       <div>{error}</div>
     ) : (

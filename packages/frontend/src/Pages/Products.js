@@ -43,7 +43,7 @@ const ProductsPage = () => {
   return (
     <div className="productspage">
       {loading ? (
-        <div>Loading...</div>
+        <div class="loading"></div>
       ) : error ? (
         <div>{error}</div>
       ) : (
