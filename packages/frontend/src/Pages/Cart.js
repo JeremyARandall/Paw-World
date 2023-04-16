@@ -1,4 +1,4 @@
-import { Alert, Avatar, Button, Grid, IconButton, List, ListItem, ListItemAvatar, Typography } from "@mui/material";
+import { Alert, Avatar, Button, Box, Grid, IconButton, List, ListItem, ListItemAvatar, Typography } from "@mui/material";
 import { useContext } from "react"
 import { Store } from "../Store";
 import { Link, useNavigate } from 'react-router-dom';
@@ -32,10 +32,13 @@ export default function Cart() {
     }
     return (
         <div>
-            <h1 className="ShoppingCartTitle" >Shopping Cart</h1>
+            <Box className="shoppingCartTitleWrapper" >
+                <h1 className="ShoppingCartTitle" >Shopping Cart</h1>
+            </Box>
             
-            <Grid container className="shoppingCartPage" spacing={3}>
-                <Grid item > 
+            
+            <Grid container className="shoppingCartPage">
+                <Grid item className="itemGrid"> 
                     {cartItems.length === 0 ? (
                         <Alert severity="warning">Cart is empty</Alert>
                     ) :
