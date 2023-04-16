@@ -78,9 +78,6 @@
     padding-left: 1rem;
     font-weight: bold;
     font-size: 30px;
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
-    margin-top: 1rem;
     color: #375c8f;
 }
 
@@ -120,7 +117,7 @@
 .exitCartButton
 {
     background-color: #f3f8ff !important;
-    margin-top: 2rem;
+    margin-top: 1rem;
     height: 40px;
     width: 500px;
     align-self: left;

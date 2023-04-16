@@ -61,7 +61,7 @@ export default function Cart() {
                                                         <AddCircleIcon />
                                                     </IconButton>
                                                     <Typography className="productInCartLink">
-                                                        ${item.price}
+                                                        <span style={{color: "red" }}>${item.price}</span>
                                                     </Typography>
                                                     <IconButton className="increaseDecreaseButton" aria-label="remove" onClick={() => removeItemHandler(item)}>
                                                         <DeleteIcon />
