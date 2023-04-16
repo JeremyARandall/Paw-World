@@ -31,7 +31,7 @@ export default function Cart() {
         navigate('signin?redirect=/checkout')
     }
     return (
-        <div>
+        <div className="cartDiv">
             <Box className="shoppingCartTitleWrapper" >
                 <h1 className="ShoppingCartTitle" >Shopping Cart</h1>
             </Box>
