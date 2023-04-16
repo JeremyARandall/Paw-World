@@ -1,0 +1,28 @@
+.listItemAvatar {
+    width: 72px;
+    height: 72px;
+  }
+  
+.avatar {
+    width: 64px;
+    height: 64px;
+}
+
+.ShoppingCartTitle
+{
+    font-weight: bold;
+    text-align: left;
+    padding: 1rem;
+    background-color: #375c8f;
+    border-radius: 0.5rem;
+    margin-top: 1rem;    
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 0.5rem;
+    color:#f3f8ff !important;
+}
+
+.shoppingCartPage
+{
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 0.5rem;
+}

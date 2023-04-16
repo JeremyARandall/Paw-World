@@ -12,7 +12,7 @@ export default function NavBar() {
 
         <nav className="nav">
 
-            <Card >
+            <Card className="cardWrapper">
 
                 <Box className="siteTitle">
                     <Link to="/" className="site-title">Paw-world</Link>
@@ -23,14 +23,11 @@ export default function NavBar() {
                     <Link className="productLinkBox" to="/products">
                         Products
                     </Link>
-
-                    <Link className="productLinkBox" to="/cart">
-                        Cart
-                        {cart.cartItems.length > 0 && (
-                            <Badge badgeContent={cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                                color="secondary">
-
-                            </Badge>)}
+                    
+                    <Link className="productLinkBox" to="/cart">Cart{cart.cartItems.length > 0 && (
+                        <Badge className="itemsLeftBadge" badgeContent={cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                            color="secondary">
+                        </Badge>)}
                     </Link>
 
                     <Link className="productLinkBox" to="/admin">

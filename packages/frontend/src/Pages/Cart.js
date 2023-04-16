@@ -6,6 +6,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import * as api from '../api';
+import './Cart.css';
 
 export default function Cart() {
     const navigate = useNavigate(); //on click navigation for buttons
@@ -31,19 +32,19 @@ export default function Cart() {
     }
     return (
         <div>
-            <h1>Shopping Cart</h1>
-            <Grid container spacing={3}>
-                <Grid item >
+            <h1 className="ShoppingCartTitle" >Shopping Cart</h1>
+            
+            <Grid container className="shoppingCartPage" spacing={3}>
+                <Grid item > 
                     {cartItems.length === 0 ? (
                         <Alert severity="warning">Cart is empty</Alert>
                     ) :
                         (
-
                             <List>
                                 {cartItems.map((item) => {
                                     return <ListItem key={item._id}>
-                                        <ListItemAvatar >
-                                            <Avatar src={item.productImage} alt={item.name}></Avatar>
+                                        <ListItemAvatar className={`${ListItemAvatar} listItemAvatar`}>
+                                            <Avatar className="avatar" src={item.productImage} alt={item.name}></Avatar>
                                         </ListItemAvatar>
                                         <Link to={`/products/${item._id}`}>{`${item.name}`}</Link>
                                         <IconButton aria-label="decrease" onClick={() => addToCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>
@@ -67,10 +68,12 @@ export default function Cart() {
                             </List>
                         )}
                 </Grid>
+
                 <Grid item  /*displays the subtotal and the total item count*/>
                     Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '} items) : $
                     {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
                 </Grid>
+
                 <Button type="button" onClick={checkoutHandler} variant="secondary" disabled={cartItems.length === 0}>Proceed to Checkout</Button>
             </Grid>
         </div>

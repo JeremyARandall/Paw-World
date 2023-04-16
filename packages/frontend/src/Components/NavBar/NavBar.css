@@ -17,6 +17,11 @@
     text-decoration: none;
 }
 
+.cardWrapper
+{
+    border-radius: 0.5rem;
+}
+
 .productLinkBox
 {
     width: 100px;
@@ -46,4 +51,9 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
     justify-items: center;
+}
+
+.itemsLeftBadge
+{
+    margin-left: 1.5rem;
 }
