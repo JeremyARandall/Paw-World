@@ -1,10 +1,9 @@
 import React, {useState} from "react";
 import {Paper, Stack, Button, Box} from "@mui/material";
 
-import CreateItems from './ToolPanels/CreateItems';
-import ModifyItems from './ToolPanels/ModifyItems';
+import CreateProduct from './ToolPanels/CreateProduct';
+import ModifyProduct from './ToolPanels/ModifyProduct';
 import CreateDiscountCode from './ToolPanels/CreateDiscountCode';
-import CreateSale from './ToolPanels/CreateSale';
 import ModifyUsers from './ToolPanels/ModifyUsers';
 import CurrentOrders from './ToolPanels/CurrentOrders';
 import OrderHistory from './ToolPanels/OrderHistory';
@@ -13,7 +12,7 @@ import OrderHistory from './ToolPanels/OrderHistory';
 
 const AdminPanel = () => {
 
-	const [activePanel, setActivePanel] = useState("create_items");
+	const [activePanel, setActivePanel] = useState("create_products");
 
 	const updateActivePanel = (panelName) => {
 		setActivePanel(panelName);
@@ -36,17 +35,17 @@ const AdminPanel = () => {
 			>
 
 				<Button
-					variant = { (activePanel === "create_items") ? "contained" : "outlined" }
-					onClick = { () => updateActivePanel("create_items") }
+					variant = { (activePanel === "create_products") ? "contained" : "outlined" }
+					onClick = { () => updateActivePanel("create_products") }
 				>
-					Create Item
+					Create Product
 				</Button>
 
 				<Button
-					variant = { (activePanel === "modify_items") ? "contained" : "outlined" }
-					onClick = { () => updateActivePanel("modify_items") }
+					variant = { (activePanel === "modify_products") ? "contained" : "outlined" }
+					onClick = { () => updateActivePanel("modify_products") }
 				>
-					Modify Item
+					Modify Product
 				</Button>
 
 				<Button
@@ -54,13 +53,6 @@ const AdminPanel = () => {
 					onClick = { () => updateActivePanel("create_discount_code") }
 				>
 					Create Discount Code
-				</Button>
-
-				<Button
-					variant = { (activePanel === "create_sale") ? "contained" : "outlined" }
-					onClick = { () => updateActivePanel("create_sale") }
-				>
-					Create Sale
 				</Button>
 
 				<Button
@@ -87,27 +79,21 @@ const AdminPanel = () => {
 			</Stack>
 
 			<Box
-				display={(activePanel === "create_items") ? "block" : "none"}
+				display={(activePanel === "create_products") ? "block" : "none"}
 			>
-				<CreateItems/>
+				<CreateProduct/>
 			</Box>
 			
 			<Box
-				display={(activePanel === "modify_items") ? "block" : "none"}
+				display={(activePanel === "modify_products") ? "block" : "none"}
 			>
-				<ModifyItems/>
+				<ModifyProduct/>
 			</Box>
 			
 			<Box
 				display={(activePanel === "create_discount_code") ? "block" : "none"}
 			>
 				<CreateDiscountCode/>
-			</Box>
-			
-			<Box
-				display={(activePanel === "create_sale") ? "block" : "none"}
-			>
-				<CreateSale/>
 			</Box>
 			
 			<Box

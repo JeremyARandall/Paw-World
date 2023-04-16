@@ -3,7 +3,7 @@ import {Container, TextField, Button, Stack, Alert, Collapse} from '@mui/materia
 import FileBase from 'react-file-base64';
 import * as api from '../../../api'
 
-export default function CreateItems() {
+export default function CreateProducts() {
 
 	const [productData, setProductData] = useState({
         name: '',
