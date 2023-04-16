@@ -77,8 +77,9 @@ export default function Cart() {
                     Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '} items) : <span style={{color: "red" }}>$
                     {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}</span>
                 </Grid>
-
-                <Button type="button" onClick={checkoutHandler} variant="secondary" disabled={cartItems.length === 0}>Proceed to Checkout</Button>
+                <Box className="exitCartButtonWrapper">
+                    <Button className="exitCartButton" type="button" onClick={checkoutHandler} variant="secondary" disabled={cartItems.length === 0}>Proceed to Checkout</Button>
+                </Box>
             </Grid>
         </div>
     )
