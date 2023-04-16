@@ -38,12 +38,12 @@ export default function Cart() {
             
             
             <Grid container className="shoppingCartPage">
-                <Grid item className="itemGrid"> 
+                <Grid item > 
                     {cartItems.length === 0 ? (
                         <Alert severity="warning">Cart is empty</Alert>
                     ) :
                         (
-                            <List>
+                            <List className="listItems">
                                 {cartItems.map((item) => {
                                     return <ListItem key={item._id}>
                                         <ListItemAvatar className={`${ListItemAvatar} listItemAvatar`}>

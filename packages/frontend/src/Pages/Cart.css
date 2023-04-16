@@ -37,5 +37,17 @@
     border-radius: 0.5rem;
     display: grid;
     padding: 1rem;
+    background-color: #f3f8ff !important;
+    display: flex;
+    flex-direction: column !important;
+}
 
+.listItems
+{
+    color:black !important;
+    font-size: 20px !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
 }
