@@ -1,25 +1,30 @@
 import React, {setState, useState} from "react";
-import {Container, TextField, Button, Stack} from '@mui/material'
+import {Container, TextField, Button, Stack, Alert, Collapse} from '@mui/material'
 import FileBase from 'react-file-base64';
 import * as api from '../../../api'
 
 const CreateItems = () => {
 
 	const [productData, setProductData] = useState({
-        name: '', description: '', brand: '', price: null, tags: [], productImage: '', stockRemaining: null
+        name: '', description: '', brand: '', price: "", tags: [], productImage: '', stockRemaining: ""
     });
+	
+	const [successAlertOpen, setSuccessAlertOpen] = useState(true);
+	const [errorAlertOpen, setErrorAlertOpen] = useState(true);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             await api.createProduct(productData);
+			clear()
+			setSuccessAlertOpen(true)
         } catch (err) {
-
+			setErrorAlertOpen(true)
         }
     };
 	
     const clear = () => {
-
+		setProductData({name: '', description: '', brand: '', price: "", tags: [], productImage: '', stockRemaining: ""});
     }
 
 	return (
@@ -136,8 +141,32 @@ const CreateItems = () => {
 						Clear
 					</Button>
 				</Stack>
-				
 			</form>
+			
+			<Collapse in = {successAlertOpen}>
+				<Alert
+					variant = "outlined"
+					severity = "success"
+					onClose = {
+						() => { setSuccessAlertOpen(false) }
+					}
+				>
+					Product successfully submitted.
+				</Alert>
+			</Collapse>
+			
+			<Collapse in = {errorAlertOpen}>
+				<Alert
+					variant = "outlined"
+					severity = "error"
+					onClose = {
+						() => { setErrorAlertOpen(false) }
+					}
+				>
+					Error submitting product.
+				</Alert>
+			</Collapse>
+			
 		</Container>
 	)
 }
