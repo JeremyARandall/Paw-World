@@ -1,8 +1,8 @@
 import { Card, Grid, Box } from "@mui/material"
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
-import './Navbar.css';
+import './NavBar.css';
 
-export default function Navbar() {
+export default function NavBar() {
 	
     return (
 	
@@ -36,5 +36,4 @@ export default function Navbar() {
             </Card>
         </nav>
     )
-	
 }
