@@ -1,12 +1,18 @@
-import React, {setState, useState} from "react";
+import React, {useState} from "react";
 import {Container, TextField, Button, Stack, Alert, Collapse} from '@mui/material'
 import FileBase from 'react-file-base64';
 import * as api from '../../../api'
 
-const CreateItems = () => {
+export default function CreateItems() {
 
 	const [productData, setProductData] = useState({
-        name: '', description: '', brand: '', price: "", tags: [], productImage: '', stockRemaining: ""
+        name: '',
+		description: '',
+		brand: '',
+		price: "",
+		tags: [],
+		productImage: '',
+		stockRemaining: ""
     });
 	
 	const [successAlertOpen, setSuccessAlertOpen] = useState(false);
@@ -21,7 +27,7 @@ const CreateItems = () => {
         } catch (err) {
 			setErrorAlertOpen(true)
         }
-    };
+    }
 	
     const clear = () => {
 		setProductData({name: '', description: '', brand: '', price: "", tags: [], productImage: '', stockRemaining: ""});
@@ -96,7 +102,7 @@ const CreateItems = () => {
 				
 				<TextField
 					name = "tags"
-					label = "Tags (comma separated)"
+					label = "Tags (Comma separated.)"
 					variant = "outlined"
 					fullWidth
 					margin = "dense"
@@ -168,7 +174,5 @@ const CreateItems = () => {
 			</Collapse>
 			
 		</Container>
-	)
+	);
 }
-
-export default CreateItems;
