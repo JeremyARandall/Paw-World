@@ -2,7 +2,7 @@
 {
     .productInCartLink
     {
-        width: 150px;
+        width: 90% !important;
     }
     
     .productCartGrid
@@ -11,13 +11,23 @@
         grid-template-columns: repeat( 5, 1fr ) !important;
         align-items: center;
     }
+
+    .shoppingCartTitleWrapper
+    {
+        width: 90% !important;
+    }
+
+    .shoppingCartPage
+    {
+        width: 90% !important;
+    }
 }
 
 @media ( min-width: 1000px )
 {
     .productInCartLink
     {
-        width: 400px;
+        width: 70% !important;
     }
 
     .productCartGrid
@@ -25,6 +35,16 @@
         display: grid;
         grid-template-columns: repeat( 5, 1fr ) !important;
         align-items: center;
+    }
+
+    .shoppingCartTitleWrapper
+    {
+        width: 70% !important;
+    }
+
+    .shoppingCartPage
+    {
+        width: 70% !important;
     }
 }
 
@@ -32,7 +52,7 @@
 {
     .productInCartLink
     {
-        width: 700px ;
+        width: 50% !important;
     }
 
     .productCartGrid
@@ -41,6 +61,24 @@
         grid-template-columns: repeat( 5, 1fr ) !important;
         align-items: center;
     }
+
+    .shoppingCartTitleWrapper
+    {
+        width: 50% !important;
+    }
+
+    .shoppingCartPage
+    {
+        width: 50% !important;
+    }
+}
+
+.cartDiv
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .listItemAvatar 
@@ -111,12 +149,9 @@
 .ShoppingCartTitle
 {
     text-align: left !important;
-    padding-left: 2rem;
     font-weight: bold;
     font-size: 30px;
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
-    margin-top: 1rem;
+    padding: 1rem;
     color: #375c8f !important;
 }
 
@@ -128,6 +163,10 @@
     color:black !important;
     height: 50px;    
     margin-bottom: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .shoppingCartPage
@@ -139,11 +178,12 @@
     display: flex;
     flex-direction: column !important;
     text-align: left !important;
+    align-items: center;
+    justify-content: center;
 }
 
 .subtotalGrid
 {
-    text-align: left !important;
     padding-left: 1rem;
     font-weight: bold;
     font-size: 30px;
@@ -186,7 +226,6 @@
     margin-top: 1rem;
     height: 40px;
     width: 500px;
-    align-self: left;
     margin-left: 1rem !important;
     color: rgb(0, 0, 0) !important;
     font-weight: bold !important;

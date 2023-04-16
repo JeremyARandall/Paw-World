@@ -1,14 +1,19 @@
-@media ( min-width: 100px )
+@media ( min-width: 200px )
 {
     .productsGrid
     {
         display: grid;
-        justify-content: left;
+        justify-content: center;
         grid-template-columns: repeat(1,1fr);
         background-color: #B2CAEB;
         padding: 1rem;
         border-radius: 0.5rem;
         margin-top: 1rem;
+    }
+
+    .productPageGrid
+    {
+        width: 90% !important;
     }
 }
 
@@ -17,12 +22,17 @@
     .productsGrid
     {
         display: grid;
-        justify-content: left;
+        justify-content: center;
         grid-template-columns: repeat(2,1fr);
         background-color: #B2CAEB;
         padding: 1rem;
         border-radius: 0.5rem;
         margin-top: 1rem;
+    }
+
+    .productPageGrid
+    {
+        width: 70% !important;
     }
 }
 
@@ -31,12 +41,17 @@
     .productsGrid
     {
         display: grid;
-        justify-content: left;
+        justify-content: center;
         grid-template-columns: repeat(3,1fr);
         background-color: #B2CAEB;
         padding: 1rem;
         border-radius: 0.5rem;
         margin-top: 1rem;
+    }
+
+    .productPageGrid
+    {
+        width: 50% !important;
     }
 }
 
@@ -45,12 +60,17 @@
     .productsGrid
     {
         display: grid;
-        justify-content: left;
+        justify-content: center;
         grid-template-columns: repeat(4,1fr);
         background-color: #B2CAEB;
         padding: 1rem;
         border-radius: 0.5rem;
         margin-top: 1rem;
+    }
+
+    .productPageGrid
+    {
+        width: 50% !important;
     }
 }
 
@@ -60,12 +80,21 @@
     border-radius: 0.5rem;
 }
 
+.ProductPageDiv
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .productPageGrid
 {
-    justify-content: left;
+    justify-content: center !important;
     background-color: #B2CAEB;
     border-radius: 0.5rem;
     margin-top: 1rem;
+    display: flex;
+    align-items: center;
 }
 
 .productPageBox
