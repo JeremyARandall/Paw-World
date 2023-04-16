@@ -1,6 +1,6 @@
 import { Card, Grid, Box, Badge } from "@mui/material"
 import { useContext } from "react";
-import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import { Link, useMatch } from "react-router-dom"
 import { Store } from "../../Store";
 import './NavBar.css';
 
@@ -8,6 +8,11 @@ export default function NavBar() {
 
     const { state } = useContext(Store);
     const { cart } = state;
+    const productsMatch = useMatch( "/products" );
+    const cartMatch = useMatch( "/cart" );
+    const adminMatch = useMatch( "/admin" );
+    const signupMatch = useMatch( "/signup" );
+
     return (
 
         <nav className="nav">
@@ -20,21 +25,21 @@ export default function NavBar() {
 
                 <Grid className="NavBarGrid">
 
-                    <Link className="productLinkBox" to="/products">
+                    <Link className={ `navLink ${ productsMatch ? "active" : "" }` } to="/products">
                         Products
                     </Link>
                     
-                    <Link className="productLinkBox" to="/cart">Cart{cart.cartItems.length > 0 && (
+                    <Link className={ `navLink ${ cartMatch ? "active" : "" }` } to="/cart">Cart{cart.cartItems.length > 0 && (
                         <Badge className="itemsLeftBadge" badgeContent={cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                             color="secondary">
                         </Badge>)}
                     </Link>
 
-                    <Link className="productLinkBox" to="/admin">
+                    <Link className={ `navLink ${ adminMatch ? "active" : "" }` } to="/admin">
                         Admin
                     </Link>
 
-                    <Link className="productLinkBox" to="/signup">
+                    <Link className={ `navLink ${ signupMatch ? "active" : "" }` } to="/signup">
                         Signup
                     </Link>
 

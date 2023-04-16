@@ -22,21 +22,36 @@
     border-radius: 0.5rem !important;
 }
 
-.productLinkBox
+.navLink
 {
-    width: 100px;
+    width: 200px;
     font-size: 20px;
     text-align: center;
     font-weight: bold;
     text-decoration: none;
+    border: 1px solid #f3f8ff transparent !important;
+    border-radius: 0.5rem !important;
     color:#f3f8ff !important;
-    border-bottom: 30px solid transparent !important;
 }
 
-.productLinkBox:hover
+.navLink:hover
 {
-    transition: 0.4s;
-    border-bottom: 30px solid rgb(0, 0, 0) !important;
+    transition: border-bottom 0.4s;
+    border: 1px solid #f3f8ff !important;
+    border-radius: 0.5rem !important;
+    background-color: #B2CAEB !important;
+    color:#375c8f !important;
+}
+
+.navLink.active
+{
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    color:#375c8f !important;
+    border: 0.5px solid #f3f8ff !important;
+    border-radius: 0.5rem !important;
+    background-color: #B2CAEB !important;
 }
 
 .NavBarGrid
