@@ -11,9 +11,14 @@
         grid-template-columns: repeat( 5, 1fr ) !important;
         align-items: center;
     }
+    
+    .centeredDivCart
+    {
+        width: 90%;
+    }
 }
 
-@media ( min-width: 1000px )
+@media ( min-width: 1500px )
 {
     .productInCartLink
     {
@@ -26,13 +31,18 @@
         grid-template-columns: repeat( 5, 1fr ) !important;
         align-items: center;
     }
+
+    .centeredDivCart
+    {
+        width: 70%;
+    }
 }
 
-@media (min-width: 1600px )
+@media (min-width: 2000px )
 {
     .productInCartLink
     {
-        width: 700px ;
+        width: 500px ;
     }
 
     .productCartGrid
@@ -41,6 +51,18 @@
         grid-template-columns: repeat( 5, 1fr ) !important;
         align-items: center;
     }
+
+    .centeredDivCart
+    {
+        width: 50%;
+    }
+}
+
+.centeredDivCart
+{
+    display:flex;
+    flex-direction: column;
+    margin: auto;
 }
 
 .listItemAvatar 
@@ -110,13 +132,8 @@
 
 .ShoppingCartTitle
 {
-    text-align: left !important;
-    padding-left: 2rem;
     font-weight: bold;
     font-size: 30px;
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
-    margin-top: 1rem;
     color: #375c8f !important;
 }
 
@@ -126,8 +143,13 @@
     box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.3) !important;
     border-radius: 0.5rem;
     color:black !important;
-    height: 50px;    
+    height: 30px;    
+    padding: 1rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .shoppingCartPage
@@ -185,7 +207,7 @@
     background-color: #f3f8ff !important;
     margin-top: 1rem;
     height: 40px;
-    width: 500px;
+    width: 400px;
     align-self: left;
     margin-left: 1rem !important;
     color: rgb(0, 0, 0) !important;
