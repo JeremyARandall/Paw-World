@@ -9,8 +9,8 @@ const CreateItems = () => {
         name: '', description: '', brand: '', price: "", tags: [], productImage: '', stockRemaining: ""
     });
 	
-	const [successAlertOpen, setSuccessAlertOpen] = useState(true);
-	const [errorAlertOpen, setErrorAlertOpen] = useState(true);
+	const [successAlertOpen, setSuccessAlertOpen] = useState(false);
+	const [errorAlertOpen, setErrorAlertOpen] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
