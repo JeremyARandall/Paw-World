@@ -184,7 +184,6 @@
 
 .subtotalGrid
 {
-    text-align: left !important;
     padding-left: 1rem;
     font-weight: bold;
     font-size: 30px;
@@ -227,7 +226,6 @@
     margin-top: 1rem;
     height: 40px;
     width: 500px;
-    align-self: left;
     margin-left: 1rem !important;
     color: rgb(0, 0, 0) !important;
     font-weight: bold !important;
