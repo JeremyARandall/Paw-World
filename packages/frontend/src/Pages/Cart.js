@@ -49,23 +49,34 @@ export default function Cart() {
                                                 <ListItemAvatar className={`${ListItemAvatar} listItemAvatar`}>
                                                     <Avatar className="avatar" src={item.productImage} alt={item.name}></Avatar>
                                                 </ListItemAvatar>
+                                                <Link className="productInCartLink" to={`/products/${item._id}`}>{`${item.name}`}</Link>
                                                 <Grid className="productCartGrid">
-                                                    <Link className="productInCartLink" to={`/products/${item._id}`}>{`${item.name}`}</Link>
-                                                    <IconButton className="increaseDecreaseButton" aria-label="decrease" onClick={() => addToCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>
-                                                        <RemoveCircleIcon />
-                                                    </IconButton>
-                                                    <Typography className="productInCartLink">
-                                                        {item.quantity}
-                                                    </Typography>
-                                                    <IconButton className="increaseDecreaseButton" aria-label="increase" onClick={() => addToCartHandler(item, item.quantity + 1)} disabled={item.quantity === item.stockRemaining}>
-                                                        <AddCircleIcon />
-                                                    </IconButton>
-                                                    <Typography className="productInCartLink">
-                                                        <span style={{color: "red" }}>${item.price}</span>
-                                                    </Typography>
-                                                    <IconButton className="increaseDecreaseButton" aria-label="remove" onClick={() => removeItemHandler(item)}>
-                                                        <DeleteIcon />
-                                                    </IconButton>
+                                                    <Box>
+                                                        <IconButton className="increaseDecreaseButton" aria-label="decrease" onClick={() => addToCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>
+                                                            <RemoveCircleIcon />
+                                                        </IconButton>
+                                                    </Box>
+                                                    <Box>
+                                                        <Typography className="productInCartQuantity">
+                                                            {item.quantity}
+                                                        </Typography>
+                                                    </Box>
+                                                    <Box>
+                                                        <IconButton className="increaseDecreaseButton" aria-label="increase" onClick={() => addToCartHandler(item, item.quantity + 1)} disabled={item.quantity === item.stockRemaining}>
+                                                            <AddCircleIcon/>
+                                                        </IconButton>
+                                                    </Box>
+                                                    <Box>
+                                                        <Typography className="productInCartPrice">
+                                                            ${item.price}
+                                                        </Typography>
+                                                    </Box>
+                                                    <Box>
+                                                        <IconButton className="removeButton" aria-label="remove" onClick={() => removeItemHandler(item)}>
+                                                            <DeleteIcon />
+                                                        </IconButton>
+                                                    </Box>
+                                                    
                                                 </Grid>
                                         </ListItem>
                                 })}
