@@ -45,36 +45,37 @@ export default function Cart() {
                         (
                             <List className="listItems">
                                 {cartItems.map((item) => {
-                                    return <ListItem key={item._id}>
-                                        <ListItemAvatar className={`${ListItemAvatar} listItemAvatar`}>
-                                            <Avatar className="avatar" src={item.productImage} alt={item.name}></Avatar>
-                                        </ListItemAvatar>
-                                        <Link to={`/products/${item._id}`}>{`${item.name}`}</Link>
-                                        <IconButton aria-label="decrease" onClick={() => addToCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>
-                                            <RemoveCircleIcon />
-                                        </IconButton>
-                                        <Typography>
-                                            {item.quantity}
-                                        </Typography>
-                                        <IconButton aria-label="increase" onClick={() => addToCartHandler(item, item.quantity + 1)} disabled={item.quantity === item.stockRemaining}>
-                                            <AddCircleIcon />
-                                        </IconButton>
-                                        <Typography>
-                                            ${item.price}
-                                        </Typography>
-                                        <IconButton aria-label="remove" onClick={() => removeItemHandler(item)}>
-                                            <DeleteIcon />
-                                        </IconButton>
-
-                                    </ListItem>
+                                    return <ListItem className="ListItemWrapperCart" key={item._id}>
+                                                <ListItemAvatar className={`${ListItemAvatar} listItemAvatar`}>
+                                                    <Avatar className="avatar" src={item.productImage} alt={item.name}></Avatar>
+                                                </ListItemAvatar>
+                                                <Grid className="productCartGrid">
+                                                    <Link className="productInCartLink" to={`/products/${item._id}`}>{`${item.name}`}</Link>
+                                                    <IconButton className="increaseDecreaseButton" aria-label="decrease" onClick={() => addToCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>
+                                                        <RemoveCircleIcon />
+                                                    </IconButton>
+                                                    <Typography className="productInCartLink">
+                                                        {item.quantity}
+                                                    </Typography>
+                                                    <IconButton className="increaseDecreaseButton" aria-label="increase" onClick={() => addToCartHandler(item, item.quantity + 1)} disabled={item.quantity === item.stockRemaining}>
+                                                        <AddCircleIcon />
+                                                    </IconButton>
+                                                    <Typography className="productInCartLink">
+                                                        ${item.price}
+                                                    </Typography>
+                                                    <IconButton className="increaseDecreaseButton" aria-label="remove" onClick={() => removeItemHandler(item)}>
+                                                        <DeleteIcon />
+                                                    </IconButton>
+                                                </Grid>
+                                        </ListItem>
                                 })}
                             </List>
                         )}
                 </Grid>
 
-                <Grid item  /*displays the subtotal and the total item count*/>
-                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '} items) : $
-                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
+                <Grid className="subtotalGrid" item  /*displays the subtotal and the total item count*/>
+                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '} items) : <span style={{color: "red" }}>$
+                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}</span>
                 </Grid>
 
                 <Button type="button" onClick={checkoutHandler} variant="secondary" disabled={cartItems.length === 0}>Proceed to Checkout</Button>

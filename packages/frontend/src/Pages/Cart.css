@@ -1,17 +1,47 @@
-.listItemAvatar {
-    width: 72px;
-    height: 72px;
-  }
+.listItemAvatar 
+{
+    padding-left: 1rem;
+}
   
 .avatar {
-    width: 64px;
-    height: 64px;
+    width: 80px !important;
+    height: 80px !important;
+}
+
+.increaseDecreaseButton:hover
+{
+    background-color: transparent !important;
+    color: #375c8f !important;
+}
+
+.productInCartLink
+{
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    color: black !important;
+    padding: 1rem !important;
+    border-bottom: 1px solid transparent !important;
+}
+
+.productInCartLink:hover
+{
+    border-bottom: 1px solid rgb(0, 0, 0) !important;
+    transition: 0.4s;
+    height: 15px;
+}
+
+.productCartGrid
+{
+    display: flex;
+    flex-direction: row !important;
+    padding: 1.1rem;
 }
 
 .ShoppingCartTitle
 {
     text-align: left !important;
-    padding-left: 1rem;
+    padding-left: 2rem;
     font-weight: bold;
     font-size: 30px;
     padding-bottom: 0.5rem;
@@ -22,7 +52,6 @@
 
 .shoppingCartTitleWrapper
 {
-    
     background-color: #B2CAEB !important;
     border-radius: 0.5rem;
     box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.3) !important;
@@ -36,11 +65,23 @@
 {
     box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.3) !important;
     border-radius: 0.5rem;
-    display: grid;
     padding: 1rem;
     background-color: #B2CAEB !important;
     display: flex;
     flex-direction: column !important;
+    text-align: left !important;
+}
+
+.subtotalGrid
+{
+    text-align: left !important;
+    padding-left: 1rem;
+    font-weight: bold;
+    font-size: 30px;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    margin-top: 1rem;
+    color: #375c8f;
 }
 
 .listItems
@@ -51,4 +92,28 @@
     text-transform: uppercase !important;
     font-weight: bold !important;
     text-decoration: none !important;
+    padding: 1rem !important;
+}
+
+.ListItemWrapperCart
+{
+    display: flex;
+    flex-direction: row;
+    background-color: #f3f8ff;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.3) !important;
+    margin-bottom: 1rem;
+    justify-content: left !important;
+}
+
+.ListItemWrapperCart:hover
+{
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.4) !important;
+    transition: 0.4s;
+}
+
+.ListItemWrapperCart:hover .avatar
+{
+    width: 82px !important;
+    height: 82px !important;
 }
