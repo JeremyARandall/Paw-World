@@ -1,39 +1,48 @@
-import { Card, Grid, Box } from "@mui/material"
+import { Card, Grid, Box, Badge } from "@mui/material"
+import { useContext } from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import { Store } from "../../Store";
 import './NavBar.css';
 
 export default function NavBar() {
-	
+
+    const { state } = useContext(Store);
+    const { cart } = state;
     return (
-	
+
         <nav className="nav">
-		
+
             <Card >
-			
+
                 <Box className="siteTitle">
                     <Link to="/" className="site-title">Paw-world</Link>
                 </Box>
-				
+
                 <Grid className="NavBarGrid">
-				
+
                     <Link className="productLinkBox" to="/products">
-						Products
-					</Link>
-					
+                        Products
+                    </Link>
+
                     <Link className="productLinkBox" to="/cart">
-						Cart
-					</Link>
-					
+                        Cart
+                        {cart.cartItems.length > 0 && (
+                            <Badge badgeContent={cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                                color="secondary">
+
+                            </Badge>)}
+                    </Link>
+
                     <Link className="productLinkBox" to="/admin">
-						Admin
-					</Link>
-					
+                        Admin
+                    </Link>
+
                     <Link className="productLinkBox" to="/signup">
-						Signup
-					</Link>
-					
-                </Grid>
-            </Card>
-        </nav>
+                        Signup
+                    </Link>
+
+                </Grid >
+            </Card >
+        </nav >
     )
 }
