@@ -8,12 +8,11 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import ProductsPage from './Pages/Products';
 import AdminPanel from './Components/AdminPanel/AdminPanel';
 import Signup from './Pages/signup';
-import ResponsiveAppBar from './Components/appbar';
 import Cart from './Pages/Cart';
 
 import ProductPage from './Pages/ProductPage';
 import { Store } from './Store';
-import NavBar from './NavBar';
+import NavBar from './Components/NavBar/NavBar';
 //import useStyles from './styles';
 
 
