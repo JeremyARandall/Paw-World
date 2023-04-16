@@ -3,18 +3,12 @@
     .productsGrid
     {
         display: grid;
-        justify-content: center;
+        justify-content: left;
         grid-template-columns: repeat(1,1fr);
         background-color: #B2CAEB;
         padding: 1rem;
         border-radius: 0.5rem;
         margin-top: 1rem;
-    }
-
-    .productPageGrid
-    {
-        width: 90% !important;
-        margin: auto;
     }
 }
 
@@ -23,18 +17,12 @@
     .productsGrid
     {
         display: grid;
-        justify-content: center;
+        justify-content: left;
         grid-template-columns: repeat(2,1fr);
         background-color: #B2CAEB;
         padding: 1rem;
         border-radius: 0.5rem;
         margin-top: 1rem;
-    }
-
-    .productPageGrid
-    {
-        width: 70% !important;
-        margin: auto;
     }
 }
 
@@ -43,18 +31,12 @@
     .productsGrid
     {
         display: grid;
-        justify-content: center;
+        justify-content: left;
         grid-template-columns: repeat(3,1fr);
         background-color: #B2CAEB;
         padding: 1rem;
         border-radius: 0.5rem;
         margin-top: 1rem;
-    }
-
-    .productPageGrid
-    {
-        width: 50% !important;
-        margin: auto;
     }
 }
 
@@ -63,18 +45,12 @@
     .productsGrid
     {
         display: grid;
-        justify-content: center;
+        justify-content: left;
         grid-template-columns: repeat(4,1fr);
         background-color: #B2CAEB;
         padding: 1rem;
         border-radius: 0.5rem;
         margin-top: 1rem;
-    }
-
-    .productPageGrid
-    {
-        width: 50% !important;
-        margin: auto;
     }
 }
 
@@ -86,12 +62,17 @@
 
 .productPageGrid
 {
-    background-color: #B2CAEB !important;
+    justify-content: left;
+    background-color: #B2CAEB;
     border-radius: 0.5rem;
     margin-top: 1rem;
+}
+
+.productPageBox
+{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
 }
 
 .addToCartButton
@@ -104,7 +85,6 @@
     margin-left: 1rem !important;
     color: rgb(0, 0, 0) !important;
     font-weight: bold !important;
-    margin-bottom: 1rem !important;
 }
 
 .addToCartButton:hover
