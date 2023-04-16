@@ -17,21 +17,47 @@
     text-decoration: none;
 }
 
-.productLinkBox
+.cardWrapper
 {
-    width: 100px;
+    border-radius: 0.5rem !important;
+}
+
+.navLink
+{
+    width: 200px;
     font-size: 20px;
     text-align: center;
     font-weight: bold;
     text-decoration: none;
+    border-top-right-radius: 0.5rem !important;
+    border-top-left-radius: 0.5rem !important;
     color:#f3f8ff !important;
-    border-bottom: 30px solid transparent !important;
 }
 
-.productLinkBox:hover
+.navLink:hover
 {
-    transition: 0.4s;
-    border-bottom: 30px solid rgb(0, 0, 0) !important;
+    transition: border-bottom 0.4s;
+    border-top: 0.5px solid #f3f8ff !important;
+    border-right: 0.5px solid #f3f8ff !important;
+    border-left: 0.5px solid #f3f8ff !important;
+    background-color: #B2CAEB !important;
+    color:#375c8f !important;
+    border-top-right-radius: 0.5rem !important;
+    border-top-left-radius: 0.5rem !important;
+}
+
+.navLink.active
+{
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    color:#375c8f !important;
+    border-top: 0.5px solid #f3f8ff !important;
+    border-right: 0.5px solid #f3f8ff !important;
+    border-left: 0.5px solid #f3f8ff !important;
+    background-color: #B2CAEB !important;
+    border-top-right-radius: 0.5rem !important;
+    border-top-left-radius: 0.5rem !important;
 }
 
 .NavBarGrid
@@ -46,4 +72,9 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
     justify-items: center;
+}
+
+.itemsLeftBadge
+{
+    margin-left: 1.5rem;
 }

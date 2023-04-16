@@ -1,4 +1,4 @@
-import { Alert, Avatar, Button, Grid, IconButton, List, ListItem, ListItemAvatar, Typography } from "@mui/material";
+import { Alert, Avatar, Button, Box, Grid, IconButton, List, ListItem, ListItemAvatar, Typography } from "@mui/material";
 import { useContext } from "react"
 import { Store } from "../Store";
 import { Link, useNavigate } from 'react-router-dom';
@@ -6,6 +6,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import * as api from '../api';
+import './Cart.css';
 
 export default function Cart() {
     const navigate = useNavigate(); //on click navigation for buttons
@@ -31,47 +32,54 @@ export default function Cart() {
     }
     return (
         <div>
-            <h1>Shopping Cart</h1>
-            <Grid container spacing={3}>
-                <Grid item >
+            <Box className="shoppingCartTitleWrapper" >
+                <h1 className="ShoppingCartTitle" >Shopping Cart</h1>
+            </Box>
+            
+            
+            <Grid container className="shoppingCartPage">
+                <Grid item > 
                     {cartItems.length === 0 ? (
                         <Alert severity="warning">Cart is empty</Alert>
                     ) :
                         (
-
-                            <List>
+                            <List className="listItems">
                                 {cartItems.map((item) => {
-                                    return <ListItem key={item._id}>
-                                        <ListItemAvatar >
-                                            <Avatar src={item.productImage} alt={item.name}></Avatar>
-                                        </ListItemAvatar>
-                                        <Link to={`/products/${item._id}`}>{`${item.name}`}</Link>
-                                        <IconButton aria-label="decrease" onClick={() => addToCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>
-                                            <RemoveCircleIcon />
-                                        </IconButton>
-                                        <Typography>
-                                            {item.quantity}
-                                        </Typography>
-                                        <IconButton aria-label="increase" onClick={() => addToCartHandler(item, item.quantity + 1)} disabled={item.quantity === item.stockRemaining}>
-                                            <AddCircleIcon />
-                                        </IconButton>
-                                        <Typography>
-                                            ${item.price}
-                                        </Typography>
-                                        <IconButton aria-label="remove" onClick={() => removeItemHandler(item)}>
-                                            <DeleteIcon />
-                                        </IconButton>
-
-                                    </ListItem>
+                                    return <ListItem className="ListItemWrapperCart" key={item._id}>
+                                                <ListItemAvatar className={`${ListItemAvatar} listItemAvatar`}>
+                                                    <Avatar className="avatar" src={item.productImage} alt={item.name}></Avatar>
+                                                </ListItemAvatar>
+                                                <Grid className="productCartGrid">
+                                                    <Link className="productInCartLink" to={`/products/${item._id}`}>{`${item.name}`}</Link>
+                                                    <IconButton className="increaseDecreaseButton" aria-label="decrease" onClick={() => addToCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>
+                                                        <RemoveCircleIcon />
+                                                    </IconButton>
+                                                    <Typography className="productInCartLink">
+                                                        {item.quantity}
+                                                    </Typography>
+                                                    <IconButton className="increaseDecreaseButton" aria-label="increase" onClick={() => addToCartHandler(item, item.quantity + 1)} disabled={item.quantity === item.stockRemaining}>
+                                                        <AddCircleIcon />
+                                                    </IconButton>
+                                                    <Typography className="productInCartLink">
+                                                        ${item.price}
+                                                    </Typography>
+                                                    <IconButton className="increaseDecreaseButton" aria-label="remove" onClick={() => removeItemHandler(item)}>
+                                                        <DeleteIcon />
+                                                    </IconButton>
+                                                </Grid>
+                                        </ListItem>
                                 })}
                             </List>
                         )}
                 </Grid>
-                <Grid item  /*displays the subtotal and the total item count*/>
-                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '} items) : $
-                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
+
+                <Grid className="subtotalGrid" item  /*displays the subtotal and the total item count*/>
+                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '} items) : <span style={{color: "red" }}>$
+                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}</span>
                 </Grid>
-                <Button type="button" onClick={checkoutHandler} variant="secondary" disabled={cartItems.length === 0}>Proceed to Checkout</Button>
+                <Box className="exitCartButtonWrapper">
+                    <Button className="exitCartButton" type="button" onClick={checkoutHandler} variant="secondary" disabled={cartItems.length === 0}>Proceed to Checkout</Button>
+                </Box>
             </Grid>
         </div>
     )

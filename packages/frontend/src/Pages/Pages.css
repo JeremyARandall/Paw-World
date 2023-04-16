@@ -79,22 +79,24 @@
 {
     background-color: #f3f8ff !important;
     margin-top: 1rem;
-    height: 30px;
+    height: 40px;
     width: 200px;
     align-self: left;
     margin-left: 1rem !important;
     color: rgb(0, 0, 0) !important;
+    font-weight: bold !important;
 }
 
 .addToCartButton:hover
 {
     transition: 0.4s;
-    border-color:#f3f8ff;
+    border-color:#375c8f !important;
     border-width: 0.2px;
     border-style: solid;
     background-color: #B2CAEB !important;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
-    color: #f3f8ff !important;
+    color: #375c8f !important;
+    font-weight: bold !important;
 }
 
 @keyframes loading 
@@ -134,4 +136,5 @@
     background-color: #B2CAEB;
     border-radius: 0.5rem;
     margin-top: 1rem;
+    color:#375c8f !important;
 }
