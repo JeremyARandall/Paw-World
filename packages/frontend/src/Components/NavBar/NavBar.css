@@ -29,18 +29,21 @@
     text-align: center;
     font-weight: bold;
     text-decoration: none;
-    border: 1px solid #f3f8ff transparent !important;
-    border-radius: 0.5rem !important;
+    border-top-right-radius: 0.5rem !important;
+    border-top-left-radius: 0.5rem !important;
     color:#f3f8ff !important;
 }
 
 .navLink:hover
 {
     transition: border-bottom 0.4s;
-    border: 1px solid #f3f8ff !important;
-    border-radius: 0.5rem !important;
+    border-top: 0.5px solid #f3f8ff !important;
+    border-right: 0.5px solid #f3f8ff !important;
+    border-left: 0.5px solid #f3f8ff !important;
     background-color: #B2CAEB !important;
     color:#375c8f !important;
+    border-top-right-radius: 0.5rem !important;
+    border-top-left-radius: 0.5rem !important;
 }
 
 .navLink.active
@@ -49,9 +52,12 @@
     font-weight: bold;
     text-decoration: none;
     color:#375c8f !important;
-    border: 0.5px solid #f3f8ff !important;
-    border-radius: 0.5rem !important;
+    border-top: 0.5px solid #f3f8ff !important;
+    border-right: 0.5px solid #f3f8ff !important;
+    border-left: 0.5px solid #f3f8ff !important;
     background-color: #B2CAEB !important;
+    border-top-right-radius: 0.5rem !important;
+    border-top-left-radius: 0.5rem !important;
 }
 
 .NavBarGrid

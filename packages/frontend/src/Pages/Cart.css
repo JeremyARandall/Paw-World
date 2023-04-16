@@ -17,16 +17,17 @@
     padding-bottom: 0.5rem;
     padding-top: 0.5rem;
     margin-top: 1rem;
+    color: #375c8f !important;
 }
 
 .shoppingCartTitleWrapper
 {
     
-    background-color: #375c8f;
+    background-color: #B2CAEB !important;
     border-radius: 0.5rem;
     box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.3) !important;
     border-radius: 0.5rem;
-    color:#f3f8ff !important;
+    color:black !important;
     height: 50px;    
     margin-bottom: 1rem;
 }
@@ -37,7 +38,7 @@
     border-radius: 0.5rem;
     display: grid;
     padding: 1rem;
-    background-color: #f3f8ff !important;
+    background-color: #B2CAEB !important;
     display: flex;
     flex-direction: column !important;
 }
