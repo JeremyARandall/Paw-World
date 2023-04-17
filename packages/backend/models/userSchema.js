@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
 		productId: Number,
 		quantity: Number
 	}],
-	isAdmin: boolean
+	isAdmin: Boolean
 });
 
 const User = mongoose.model('User', userSchema);
