@@ -11,7 +11,9 @@ export default function NavBar() {
     const productsMatch = useMatch( "/products" );
     const cartMatch = useMatch( "/cart" );
     const adminMatch = useMatch( "/admin" );
-    const signupMatch = useMatch( "/signup" );
+    //const signupMatch = useMatch( "/signup" );
+    const signupMatch = useMatch( "/login" ); //signup
+    const signup = useMatch( "/signup" ); 
 
     return (
 
@@ -39,8 +41,11 @@ export default function NavBar() {
                         Admin
                     </Link>
 
-                    <Link className={ `navLink ${ signupMatch ? "active" : "" }` } to="/signup">
-                        Signup
+                    <Link className={ `navLink ${ signupMatch ? "active" : "" }` } to="/login">
+                        Login
+                    </Link>
+                    <Link className={ `navLink ${ signup ? "active" : "" }` } to="/signup"> 
+                        Login 
                     </Link>
 
                 </Grid >
