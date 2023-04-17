@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useReducer} from "react";
 import {TableContainer, TableHead, TableBody, TableRow, TableCell, IconButton, Box, Container, Stack, Button, TextField, Alert, Collapse} from '@mui/material'
 import {ExpandMore, ExpandLess} from '@mui/icons-material'
+import FileBase from 'react-file-base64';
 import logger from 'use-reducer-logger';
 import * as api from '../../../api';
 
@@ -28,12 +29,10 @@ function ProductEditor(props) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			await api.updateProductById(product._id, productData);
-			//setSuccessAlertOpen(true)
-			alert("success")
+			//await api.updateProductById(product._id, productData);
+			setSuccessAlertOpen(true)
 		} catch (err) {
-			//setErrorAlertOpen(true)
-			alert("failure")
+			setErrorAlertOpen(true)
 		}
 	}
 	
@@ -98,6 +97,19 @@ function ProductEditor(props) {
 					}
 				/>
 				
+				<div style = {{
+					marginTop: "10px",
+					marginBottom: "10px"
+				}}>
+					<FileBase
+						type = "file"
+						multiple = {false}
+						onDone = {
+							({ base64 }) => setProductData({ ...productData, productImage: base64 })
+						}
+					/>
+				</div>
+				
 				<Stack
 					justifyContent = "center"
 					alignItems = "center"
@@ -113,6 +125,32 @@ function ProductEditor(props) {
 						Submit Changes
 					</Button>
 				</Stack>
+				
+				<Box sx={{paddingBottom: "10px"}}>
+					<Collapse in = {successAlertOpen}>
+						<Alert
+							variant = "outlined"
+							severity = "success"
+							onClose = {
+								() => { setSuccessAlertOpen(false) }
+							}
+						>
+							Changes successfully submitted.
+						</Alert>
+					</Collapse>
+					
+					<Collapse in = {errorAlertOpen}>
+						<Alert
+							variant = "outlined"
+							severity = "error"
+							onClose = {
+								() => { setErrorAlertOpen(false) }
+							}
+						>
+							Error submitting changes.
+						</Alert>
+					</Collapse>
+				</Box>
 			</form>
 		</Container>
 	);
