@@ -1,14 +1,19 @@
-@media ( min-width: 400px )
+@media ( min-width: 200px )
 {
     .productsGrid
     {
         display: grid;
-        justify-content: left;
+        justify-content: center;
         grid-template-columns: repeat(1,1fr);
         background-color: #B2CAEB;
         padding: 1rem;
         border-radius: 0.5rem;
         margin-top: 1rem;
+    }
+
+    .productPageGrid
+    {
+        width: 90% !important;
     }
 }
 
@@ -17,12 +22,17 @@
     .productsGrid
     {
         display: grid;
-        justify-content: left;
+        justify-content: center;
         grid-template-columns: repeat(2,1fr);
         background-color: #B2CAEB;
         padding: 1rem;
         border-radius: 0.5rem;
         margin-top: 1rem;
+    }
+
+    .productPageGrid
+    {
+        width: 70% !important;
     }
 }
 
@@ -31,12 +41,17 @@
     .productsGrid
     {
         display: grid;
-        justify-content: left;
+        justify-content: center;
         grid-template-columns: repeat(3,1fr);
         background-color: #B2CAEB;
         padding: 1rem;
         border-radius: 0.5rem;
         margin-top: 1rem;
+    }
+
+    .productPageGrid
+    {
+        width: 50% !important;
     }
 }
 
@@ -45,12 +60,17 @@
     .productsGrid
     {
         display: grid;
-        justify-content: left;
+        justify-content: center;
         grid-template-columns: repeat(4,1fr);
         background-color: #B2CAEB;
         padding: 1rem;
         border-radius: 0.5rem;
         margin-top: 1rem;
+    }
+
+    .productPageGrid
+    {
+        width: 50% !important;
     }
 }
 
@@ -60,12 +80,21 @@
     border-radius: 0.5rem;
 }
 
+.ProductPageDiv
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .productPageGrid
 {
-    justify-content: left;
+    justify-content: center !important;
     background-color: #B2CAEB;
     border-radius: 0.5rem;
     margin-top: 1rem;
+    display: flex;
+    align-items: center;
 }
 
 .productPageBox
@@ -79,22 +108,24 @@
 {
     background-color: #f3f8ff !important;
     margin-top: 1rem;
-    height: 30px;
+    height: 40px;
     width: 200px;
     align-self: left;
     margin-left: 1rem !important;
     color: rgb(0, 0, 0) !important;
+    font-weight: bold !important;
 }
 
 .addToCartButton:hover
 {
     transition: 0.4s;
-    border-color:#f3f8ff;
+    border-color:#375c8f !important;
     border-width: 0.2px;
     border-style: solid;
     background-color: #B2CAEB !important;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
-    color: #f3f8ff !important;
+    color: #375c8f !important;
+    font-weight: bold !important;
 }
 
 @keyframes loading 
@@ -134,4 +165,5 @@
     background-color: #B2CAEB;
     border-radius: 0.5rem;
     margin-top: 1rem;
+    color:#375c8f !important;
 }

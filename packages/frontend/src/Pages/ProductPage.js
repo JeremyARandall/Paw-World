@@ -77,12 +77,15 @@ const ProductPage = () => {
     ) : error ? (
       <div>{error}</div>
     ) : (
-      <Grid container className="productPageGrid">
-        <Box className="productPageBox">
-          <Product product={product} />
-          <Button onClick={addToCartHandler} className="addToCartButton" >Add to Cart</Button>
-        </Box>
-      </Grid>
+      <div className="ProductPageDiv" >
+        <Grid container className="productPageGrid">
+          <Box className="productPageBox">
+            <Product product={product} />
+            <Button onClick={addToCartHandler} className="addToCartButton" >Add to Cart</Button>
+          </Box>
+        </Grid>
+      </div>
+      
     )
   );
 };
