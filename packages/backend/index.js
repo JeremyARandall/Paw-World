@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import productRoutes from './routes/product.js';
 import discountRoutes from './routes/discount.js';
+import orderRoutes from './routes/order.js';
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(cors());
 
 app.use('/api/products', productRoutes);
 app.use('/api/discounts', discountRoutes);
+app.use('/api/orders', orderRoutes);
 
 const CONNECTION_URL = "mongodb+srv://Dev:klhMJYV0DbUsApH3@cluster0.vaxsq2h.mongodb.net/?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
