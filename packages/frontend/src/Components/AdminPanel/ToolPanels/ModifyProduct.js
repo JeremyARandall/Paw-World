@@ -29,7 +29,7 @@ function ProductEditor(props) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			//await api.updateProductById(product._id, productData);
+			await api.updateProductById(product._id, productData);
 			setSuccessAlertOpen(true)
 		} catch (err) {
 			setErrorAlertOpen(true)
