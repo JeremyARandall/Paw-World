@@ -41,7 +41,6 @@ export default function CreateProducts() {
 			>
 			
 				<TextField
-					name = "name"
 					label = "Product Name"
 					variant = "outlined"
 					fullWidth
@@ -53,7 +52,6 @@ export default function CreateProducts() {
 				/>
 				
 				<TextField
-					name = "description"
 					label = "Description"
 					variant = "outlined"
 					fullWidth
@@ -65,7 +63,6 @@ export default function CreateProducts() {
 				/>
 				
 				<TextField
-					name = "brand"
 					label = "Brand"
 					variant = "outlined"
 					fullWidth
@@ -77,7 +74,6 @@ export default function CreateProducts() {
 				/>
 				
 				<TextField
-					name = "price"
 					label = "Price"
 					variant = "outlined"
 					fullWidth
@@ -89,7 +85,6 @@ export default function CreateProducts() {
 				/>
 				
 				<TextField
-					name = "stockRemaining"
 					label = "Stock Remaning"
 					variant = "outlined"
 					fullWidth
@@ -101,7 +96,6 @@ export default function CreateProducts() {
 				/>
 				
 				<TextField
-					name = "tags"
 					label = "Tags (Comma separated.)"
 					variant = "outlined"
 					fullWidth
