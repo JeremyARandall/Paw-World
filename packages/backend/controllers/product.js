@@ -38,3 +38,18 @@ export const createProduct = async (req, res) => {
         res.status(409).json({ message: error.message });
     }
 };
+
+export const updateProductById = async (req, res) => {
+
+	const { id } = req.params;
+	const { name, description, brand, price, tags, productImage, stockRemaining, dateCreated } = req.body;
+	const updated = { name, description, brand, price, tags, productImage, stockRemaining, dateCreated, _id: id};
+
+	try{
+		await Product.findByIdAndUpdate(id, updated, { new: true});
+		res.json(updated);
+	}
+	catch (error) {
+		res.status(304).json({ message: error.message });
+	}
+}
