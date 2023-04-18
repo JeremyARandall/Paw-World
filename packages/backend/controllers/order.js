@@ -44,8 +44,8 @@ export const getOrderById = async (req, res) => {
 export const updateOrderById = async (req, res) => {
 
 	const { id } = req.params;
-	const { userId, items, datePlaced, dateFulfilled } = req.body;
-	const updated = { userId, items, datePlaced, dateFulfilled, _id: id};
+	const { userId, products, datePlaced, dateFulfilled } = req.body;
+	const updated = { userId, products, datePlaced, dateFulfilled, _id: id};
 
 	try{
 		await Order.findByIdAndUpdate(id, updated, {new: true});
