@@ -16,8 +16,22 @@ export const createOrder = async (req, res) => {
 
 export const getOrders = async (req, res) => {
 
+	var query;
+
+	if (req.query.type == 'current'){
+		query = Order.where("dateFulfilled", null);
+	}
+	
+	else if (req.query.type == 'past'){
+		query = Order.where("dateFulfilled").ne(null);
+	}
+	
+	else{
+		query = Order.find({});
+	}
+	
 	try {
-		const orders = await Order.find({});
+		const orders = await query.exec();
 		res.status(200).json(orders);
 	}
 	catch (error) {
