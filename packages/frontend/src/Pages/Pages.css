@@ -128,25 +128,28 @@
 
 @keyframes loading 
 {
-    0%{content: "Loading";}
-    5%{content: "Loading |";}
-    10%{content: "Loading   |   |";}
-    15%{content: "Loading   |   |   |";}
-    20%{content: "Loading   |   |   |   |";}
-    25%{content: "Loading   |   |   |   |   |";}
-    30%{content: "Loading   |   |   |   |   |   |";}
-    35%{content: "Loading   |   |   |   |   |   |   |";}
-    40%{content: "Loading   |   |   |   |   |   |   |   |";}
-    50%{content: "Loading   |   |   |   |   |   |   |   |   |";}
-    55%{content: "Loading   |   |   |   |   |   |   |   |   |   |";}
-    60%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |";}
-    65%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |";}
-    70%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |   |";}
-    75%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |   |   |";}
-    80%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |";}
-    85%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |";}
-    90%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |";}
-    95%{content: "Loading   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |";}
+    0%{ width: 0%; background-color: #375c8f; }
+    100%{ width: 100%; background-color: #375c8f; }
+}
+
+.loading:before 
+{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: f3f8ff;
+    animation: loading 2s linear infinite;
+}
+
+@keyframes glowing 
+{
+    0%{ box-shadow: 0 0 0px #f3f8ff, 0 0 0px #f3f8ff; }
+    50%{ box-shadow: 0 0 20px #f3f8ff, 0 0 50px #f3f8ff; }
+    100%{ box-shadow: 0 0 0px #f3f8ff, 0 0 0px #f3f8ff; }
 }
 
 .loading::after
@@ -157,13 +160,16 @@
 
 .loading
 {
-    font-weight: bold;
-    text-align: left;
-    padding: 1rem;
-    background-color: #B2CAEB;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-    color:#375c8f !important;
+    width: 100%;
+    height: 5px; /* Adjust the height to make it thicker */
+    background-color: #f3f8ff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    overflow: hidden;
+    animation: glowing 2s infinite;
+
 }
 
 .descriptionProdPage

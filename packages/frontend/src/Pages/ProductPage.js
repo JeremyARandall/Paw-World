@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer, Typography } from 'react';
+import React, { useContext, useEffect, useReducer } from 'react';
 import Product from '../Components/Product/Product';
 import * as api from '../api';
 import { useNavigate, useParams } from 'react-router-dom';
