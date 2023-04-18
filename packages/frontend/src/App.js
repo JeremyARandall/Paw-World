@@ -13,6 +13,7 @@ import Cart from './Pages/Cart';
 import ProductPage from './Pages/ProductPage';
 import { Store } from './Store';
 import NavBar from './Components/NavBar/NavBar';
+import Login from './Pages/login';
 //import useStyles from './styles';
 
 
@@ -28,6 +29,7 @@ function App() {
         <main>
 
           <Routes /*all routes within the router have a path(portion behind URL), and an element associated with it, which is the page pulled from Components */>
+            <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} /* going to localhost:3000/signup will bring the signup page from ./Components/signup.js that was imported*/ />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/admin" element={<AdminPanel />} /*current method to add products to db during development*/ />
