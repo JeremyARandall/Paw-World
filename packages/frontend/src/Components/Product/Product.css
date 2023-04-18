@@ -43,6 +43,7 @@
     text-transform: uppercase;
     text-decoration: none;
     bottom: 1rem !important;
+    font-size: 21px !important;
 }
 
 .brandWrapper
@@ -57,12 +58,16 @@
     text-transform: uppercase;
     text-decoration: none;
     color: red;
+    font-size: 21px !important;
+    justify-self: left !important;
 }
 
 .pricingWrapper
 {
     position: relative;
     top: 1rem !important;
+    display: grid !important;
+    grid-template-columns: repeat( 2, 1fr ) !important;
 }
 
 .productImage
@@ -92,17 +97,18 @@
 
 .productName
 {
-    border-bottom: 1px solid transparent !important;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     text-overflow: ellipsis;
     overflow: hidden;
-    bottom: 1rem !important;
+    font-size: 18px !important;
+    text-align: left;
+    color: black !important;
+    white-space: wrap;
 }
 
-.productName:hover
+.leftInStock
 {
-    border-bottom: 1px solid rgb(0, 0, 0) !important;
-    transition: 0.4s;
+    justify-self: right !important;    
 }

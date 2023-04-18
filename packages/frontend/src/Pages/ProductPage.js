@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer, } from 'react';
+import React, { useContext, useEffect, useReducer, Typography } from 'react';
 import Product from '../Components/Product/Product';
 import * as api from '../api';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -82,6 +82,9 @@ const ProductPage = () => {
           <Box className="productPageBox">
             <Product product={product} />
             <Button onClick={addToCartHandler} className="addToCartButton" >Add to Cart</Button>
+          </Box>
+          <Box className="descriptionProdPage">
+            <div className='description'>{product.description}</div>
           </Box>
         </Grid>
       </div>

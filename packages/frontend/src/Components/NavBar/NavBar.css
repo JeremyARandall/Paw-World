@@ -1,3 +1,46 @@
+@media ( min-width: 200px )
+{
+    .NavBarGrid
+    {
+        grid-template-columns: repeat(2,1fr);
+        height: 84px;
+    }
+}
+
+@media ( min-width: 800px )
+{
+    .NavBarGrid
+    {
+        grid-template-columns: repeat(4,1fr);
+        height: 56px;
+    }
+}
+
+@media (min-width: 1200px )
+{
+    .NavBarGrid
+    {
+        grid-template-columns: repeat(5,1fr);
+        height: 28px;
+    }
+}
+
+@media (min-width: 1600px )
+{
+    .NavBarGrid
+    {
+        grid-template-columns: repeat(5,1fr);
+        height: 28px;
+    }
+}
+
+.itemsLeftBadge
+{
+    color: green !important;
+    align-items: left  !important;
+    justify-content: center !important;
+}
+
 .siteTitle
 {
     text-transform: capitalize !important;
@@ -64,13 +107,11 @@
 {
     background-color: #375c8f !important;
     margin-top: 0.05rem !important;
-    height: 28px;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.3) !important;
     justify-content: center;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
     justify-items: center;
 }
 

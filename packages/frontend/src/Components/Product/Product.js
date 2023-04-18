@@ -26,6 +26,7 @@ const Product = (props) => {
           </Link>
           <Box className="pricingWrapper">
             <Typography className='pricing'>${product.price}</Typography>
+            <Typography className="leftInStock">Left in stock: {product.stockRemaining}</Typography>
           </Box>
         </CardContent>
       </Box>

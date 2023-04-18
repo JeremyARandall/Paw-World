@@ -8,8 +8,9 @@
     .productCartGrid
     {
         display: grid;
-        grid-template-columns: repeat( 5, 1fr ) !important;
+        grid-template-columns: repeat( 3, 1fr ) !important;
         align-items: center;
+        width: 90% !important;
     }
 
     .shoppingCartTitleWrapper
@@ -20,6 +21,11 @@
     .shoppingCartPage
     {
         width: 90% !important;
+    }
+
+    .exitCartButton
+    {
+        width: 300px;
     }
 }
 
@@ -46,6 +52,11 @@
     {
         width: 70% !important;
     }
+
+    .exitCartButton
+    {
+        width: 400px;
+    }
 }
 
 @media (min-width: 1600px )
@@ -71,6 +82,11 @@
     {
         width: 50% !important;
     }
+
+    .exitCartButton
+    {
+        width: 500px;
+    }
 }
 
 .cartDiv
@@ -93,12 +109,10 @@
 
 .productInCartLink
 {
-    font-weight: bold !important;
-    text-transform: uppercase !important;
+    font-size: 18px !important;
     text-decoration: none !important;
     color: black !important;
     padding-left: 1rem;
-    border-bottom: 1px solid transparent !important;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -108,7 +122,6 @@
 
 .productInCartLink:hover
 {
-    border-bottom: 1px solid rgb(0, 0, 0) !important;
     transition: 0.4s;
 }
 
@@ -149,7 +162,6 @@
 .ShoppingCartTitle
 {
     text-align: left !important;
-    font-weight: bold;
     font-size: 30px;
     padding: 1rem;
     color: #375c8f !important;
@@ -195,8 +207,6 @@
     color:black !important;
     font-size: 20px !important;
     text-align: center !important;
-    text-transform: uppercase !important;
-    font-weight: bold !important;
     text-decoration: none !important;
     padding: 1rem !important;
 }
@@ -225,7 +235,6 @@
     background-color: #f3f8ff !important;
     margin-top: 1rem;
     height: 40px;
-    width: 500px;
     margin-left: 1rem !important;
     color: rgb(0, 0, 0) !important;
     font-weight: bold !important;

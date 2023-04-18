@@ -32,7 +32,7 @@
 
     .productPageGrid
     {
-        width: 70% !important;
+        width: 80% !important;
     }
 }
 
@@ -51,7 +51,7 @@
 
     .productPageGrid
     {
-        width: 50% !important;
+        width: 70% !important;
     }
 }
 
@@ -70,7 +70,7 @@
 
     .productPageGrid
     {
-        width: 50% !important;
+        width: 60% !important;
     }
 }
 
@@ -93,14 +93,12 @@
     background-color: #B2CAEB;
     border-radius: 0.5rem;
     margin-top: 1rem;
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-rows: repeat( 3, 1fr ) !important;
 }
 
 .productPageBox
 {
-    display: flex;
-    flex-direction: column;
     padding: 1rem;
 }
 
@@ -166,4 +164,18 @@
     border-radius: 0.5rem;
     margin-top: 1rem;
     color:#375c8f !important;
+}
+
+.descriptionProdPage
+{
+    text-align: left;
+    padding: 1rem !important;
+    margin-top: 2rem !important;
+    color: black !important;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 350px;
+    height: 350px;
+    font-size: 20px !important;
 }

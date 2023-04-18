@@ -76,7 +76,6 @@ export default function Cart() {
                                                             <DeleteIcon />
                                                         </IconButton>
                                                     </Box>
-                                                    
                                                 </Grid>
                                         </ListItem>
                                 })}
