@@ -44,7 +44,7 @@ function Login() {
         });
     }
 
-    const paperStyle = { padding: '350px 1100px', width: 600, margin: '20px auto', backgroundColor: '#B2CAEB' }
+    const paperStyle = { padding: '3.5rem', width: '80%', maxWidth: '900px', margin: '20px auto', backgroundColor: '#B2CAEB' }
     const headerStyle = { margin: '20', fontSize: '50px', paddingTop: '0px' }
     const avatarStyle = { backgroundColor: '#375c8f', width: '110px', height: '110px', marginBottom: '10px', marginTop: '0px'}
     const svgStyle = {
@@ -71,7 +71,7 @@ function Login() {
         name="email"
         value={email}
         onChange={(e)=>{setEmail(e.target.value)}}
-        style={{height: '30px', fontSize: '40px'}}
+        style={{height: '30px', fontSize: '30px'}}
     />
     <label className="label" style={{ fontSize: '40px' }}>Password:</label>
     <input 
@@ -81,7 +81,7 @@ function Login() {
         name="password"
         value={password}
         onChange={(e)=>{setPassword(e.target.value)}}
-        style={{height: '30px', fontSize: '40px'}}
+        style={{height: '30px', fontSize: '30px'}}
     />
     <button 
         disabled={isSubmitting}
@@ -93,7 +93,7 @@ function Login() {
 
                 
             </Paper>
-        </Grid>
+    </Grid>
 
     )
 }
