@@ -1,15 +1,13 @@
 @media ( min-width: 200px )
 {
-    .productInCartLink
-    {
-        width: 90% !important;
-    }
-    
     .productCartGrid
     {
         display: grid;
         grid-template-columns: repeat( 5, 1fr ) !important;
-        align-items: center;
+        justify-items: center !important;
+        align-items: center !important;
+        padding-right: 0rem !important;
+        width: auto !important;
     }
 
     .shoppingCartTitleWrapper
@@ -20,56 +18,353 @@
     .shoppingCartPage
     {
         width: 90% !important;
+    }
+
+    .exitCartButton
+    {
+        width: auto !important;
+        height: 30px !important;
+    }
+
+    .listItemAvatar 
+    {
+        align-items: center !important;
+        justify-content: left !important;
+        padding-bottom: 1rem !important;
+    }
+
+    .ListItemWrapperCart
+    {
+        display: grid !important;
+        grid-template-columns: repeat( 1, 1fr ) !important;
+        padding-bottom: 1rem !important;
+    }
+
+    .productInCartQuantity
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .productInCartPrice
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+        
+    }
+
+    .increaseDecreaseButton
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .removeButton
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .subtotalGrid
+    {
+        font-size: 20px !important;
     }
 }
 
-@media ( min-width: 1000px )
+@media ( min-width: 480px )
 {
-    .productInCartLink
-    {
-        width: 70% !important;
-    }
-
     .productCartGrid
     {
         display: grid;
         grid-template-columns: repeat( 5, 1fr ) !important;
-        align-items: center;
+        align-items: center !important;
+        align-items: right !important;
+        padding-right: 0rem !important;
+        width: auto !important;
     }
 
     .shoppingCartTitleWrapper
     {
-        width: 70% !important;
+        width: 500px !important;
     }
 
     .shoppingCartPage
     {
-        width: 70% !important;
+        width: 500px !important;
+    }
+
+    .exitCartButton
+    {
+        width: 400px !important;
+        height: 30px !important;
+    }
+
+    .listItemAvatar 
+    {
+        align-items: center !important;
+        justify-content: left !important;
+        padding-bottom: 1rem !important;
+    }
+
+    .ListItemWrapperCart
+    {
+        display: grid !important;
+        grid-template-columns: repeat( 1, 1fr ) !important;
+        padding-bottom: 1rem !important;
+        width: 400px !important;
+        height: 200px !important;
+    }
+
+    .productInCartQuantity
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .productInCartPrice
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+        
+    }
+
+    .increaseDecreaseButton
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .removeButton
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .subtotalGrid
+    {
+        font-size: 20px !important;
     }
 }
 
-@media (min-width: 1600px )
+@media (min-width: 800px )
 {
-    .productInCartLink
-    {
-        width: 50% !important;
-    }
-
     .productCartGrid
     {
         display: grid;
         grid-template-columns: repeat( 5, 1fr ) !important;
-        align-items: center;
+        align-items: center !important;
+        align-items: right !important;
+        padding-right: 0rem !important;
+        width: auto !important;
     }
 
     .shoppingCartTitleWrapper
     {
-        width: 50% !important;
+        width: 700px !important;
     }
 
     .shoppingCartPage
     {
-        width: 50% !important;
+        width: 700px !important;
+    }
+
+    .exitCartButton
+    {
+        width: 400px !important;
+        height: 30px !important;
+    }
+
+    .listItemAvatar 
+    {
+        align-items: left !important;
+        justify-content: left !important;
+        padding-bottom: 0rem !important;
+    }
+
+    .ListItemWrapperCart
+    {
+        display: grid !important;
+        grid-template-columns: 0.7fr 2fr 1fr !important;
+        width: 600px !important;
+        height: 110px !important;
+    }
+
+    .productInCartQuantity
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .productInCartPrice
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+        
+    }
+
+    .increaseDecreaseButton
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .removeButton
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .subtotalGrid
+    {
+        font-size: 30px !important;
+    }
+}
+
+@media (min-width: 1024px )
+{
+    .productCartGrid
+    {
+        display: grid;
+        grid-template-columns: repeat( 5, 1fr ) !important;
+        align-items: center !important;
+        align-items: right !important;
+        padding-right: 0rem !important;
+        width: auto !important;
+    }
+
+    .shoppingCartTitleWrapper
+    {
+        width: 800px !important;
+    }
+
+    .shoppingCartPage
+    {
+        width: 800px !important;
+    }
+
+    .exitCartButton
+    {
+        width: 400px !important;
+        height: 30px !important;
+    }
+
+    .listItemAvatar 
+    {
+        align-items: center !important;
+        justify-content: left !important;
+        padding-bottom: 0rem !important;
+    }
+
+    .ListItemWrapperCart
+    {
+        display: grid !important;
+        grid-template-columns: 0.7fr 2fr 1fr !important;
+        width: 700px !important;
+        height: 110px !important;
+    }
+
+    .productInCartQuantity
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .productInCartPrice
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+        
+    }
+
+    .increaseDecreaseButton
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .removeButton
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .subtotalGrid
+    {
+        font-size: 30px !important;
+    }
+}
+
+@media (min-width: 1200px )
+{
+    .productCartGrid
+    {
+        display: grid;
+        grid-template-columns: repeat( 5, 1fr ) !important;
+        align-items: center !important;
+        align-items: right !important;
+        padding-right: 0rem !important;
+        width: auto !important;
+    }
+
+    .shoppingCartTitleWrapper
+    {
+        width: 1100px !important;
+    }
+
+    .shoppingCartPage
+    {
+        width: 1100px !important;
+    }
+
+    .exitCartButton
+    {
+        width: 400px !important;
+        height: 30px !important;
+    }
+
+    .listItemAvatar 
+    {
+        align-items: center !important;
+        justify-content: left !important;
+        padding-bottom: 0rem !important;
+    }
+
+    .ListItemWrapperCart
+    {
+        display: grid !important;
+        grid-template-columns: 0.7fr 2fr 1fr !important;
+        width: 1000px !important;
+        height: 110px !important;
+    }
+
+    .productInCartQuantity
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .productInCartPrice
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+        
+    }
+
+    .increaseDecreaseButton
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .removeButton
+    {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+
+    .subtotalGrid
+    {
+        font-size: 30px !important;
     }
 }
 
@@ -93,12 +388,10 @@
 
 .productInCartLink
 {
-    font-weight: bold !important;
-    text-transform: uppercase !important;
+    font-size: 18px !important;
     text-decoration: none !important;
     color: black !important;
     padding-left: 1rem;
-    border-bottom: 1px solid transparent !important;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -108,7 +401,6 @@
 
 .productInCartLink:hover
 {
-    border-bottom: 1px solid rgb(0, 0, 0) !important;
     transition: 0.4s;
 }
 
@@ -116,28 +408,12 @@
 {
     font-weight: bold !important;
     color: black !important;
-    padding-left: 1rem;
-    padding-right: 1rem;
 }
 
 .productInCartPrice
 {
     font-weight: bold !important;
-    color: red !important;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    
-}
-
-.increaseDecreaseButton
-{
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-.removeButton
-{
-    padding-left: 1rem;
+    color: red !important;   
 }
 
 .increaseDecreaseButton:hover
@@ -149,7 +425,6 @@
 .ShoppingCartTitle
 {
     text-align: left !important;
-    font-weight: bold;
     font-size: 30px;
     padding: 1rem;
     color: #375c8f !important;
@@ -173,7 +448,6 @@
 {
     box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.3) !important;
     border-radius: 0.5rem;
-    padding: 1rem;
     background-color: #B2CAEB !important;
     display: flex;
     flex-direction: column !important;
@@ -185,8 +459,8 @@
 .subtotalGrid
 {
     padding-left: 1rem;
+    padding-right: 1rem;
     font-weight: bold;
-    font-size: 30px;
     color: #375c8f;
 }
 
@@ -195,8 +469,6 @@
     color:black !important;
     font-size: 20px !important;
     text-align: center !important;
-    text-transform: uppercase !important;
-    font-weight: bold !important;
     text-decoration: none !important;
     padding: 1rem !important;
 }
@@ -218,6 +490,7 @@
 .exitCartButtonWrapper
 {
     margin-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .exitCartButton
@@ -225,8 +498,6 @@
     background-color: #f3f8ff !important;
     margin-top: 1rem;
     height: 40px;
-    width: 500px;
-    margin-left: 1rem !important;
     color: rgb(0, 0, 0) !important;
     font-weight: bold !important;
 }

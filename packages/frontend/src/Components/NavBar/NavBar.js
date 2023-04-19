@@ -45,7 +45,7 @@ export default function NavBar() {
                         Login
                     </Link>
                     <Link className={ `navLink ${ signup ? "active" : "" }` } to="/signup"> 
-                        Login 
+                        Sign Up 
                     </Link>
 
                 </Grid >
