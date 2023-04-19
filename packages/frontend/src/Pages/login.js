@@ -1,8 +1,8 @@
 import { Avatar, Button, Grid, Paper, TextField, Typography } from '@mui/material'
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import React,{ useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate, useMatch} from "react-router-dom"
+import PetsIcon from '@mui/icons-material/Pets';
 
   
 function Login() {
@@ -44,48 +44,53 @@ function Login() {
         });
     }
 
-    const paperStyle = { padding: '30px 20px', width: 500, margin: '20px auto' }
-    const headerStyle = { margin: '0' }
-    const avatarStyle = { backgroundColor: 'green' }
+    const paperStyle = { padding: '350px 1100px', width: 600, margin: '20px auto', backgroundColor: '#B2CAEB' }
+    const headerStyle = { margin: '20', fontSize: '50px', paddingTop: '0px' }
+    const avatarStyle = { backgroundColor: '#375c8f', width: '110px', height: '110px', marginBottom: '10px', marginTop: '0px'}
+    const svgStyle = {
+        fontSize: '100px', // adjust the font size as per your requirement
+      }
+    
 
     return (
         <Grid>
             <Paper elevation={20} style={paperStyle}>
                 <Grid align='center'>
                     <Avatar style={avatarStyle}>
-                        <AddCircleOutlineOutlinedIcon></AddCircleOutlineOutlinedIcon>
+                        <PetsIcon style={svgStyle} />
                     </Avatar>
                     <h2 style={headerStyle}>Login</h2>
                 </Grid>
                 
-                <form onSubmit={(e)=>{loginAction(e)}}>
+<form onSubmit={(e)=>{loginAction(e)}} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <label className="label" style={{ fontSize: '40px'}}>Email:</label>
+    <input 
+        type="email"
+        className="form-control"
+        id="email"
+        name="email"
+        value={email}
+        onChange={(e)=>{setEmail(e.target.value)}}
+        style={{height: '30px', fontSize: '40px'}}
+    />
+    <label className="label" style={{ fontSize: '40px' }}>Password:</label>
+    <input 
+        type="password"
+        className="form-control"
+        id="password"
+        name="password"
+        value={password}
+        onChange={(e)=>{setPassword(e.target.value)}}
+        style={{height: '30px', fontSize: '40px'}}
+    />
+    <button 
+        disabled={isSubmitting}
+        type="submit"
+        className="btn btn-primary btn-block"
+        style={{fontSize: '50px', width: '300px', marginTop: '20px'}}>Login</button>
+    <p className="text-center" style={{fontSize: '30px'}}>Don't have account? <Link to="/signup" style={{fontSize: '35px'}}>Register here</Link></p>
+</form>
 
-                    <label className="label">Email</label>
-                    <input 
-                        type="email"
-                        className="form-control"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={(e)=>{setEmail(e.target.value)}}
-                    />
-                    <label className="label">Password</label>
-                    <input 
-                        type="password"
-                        className="form-control"
-                        id="password"
-                        name="password"
-                        value={password}
-                        onChange={(e)=>{setPassword(e.target.value)}}
-                    />
-
-                    <button 
-                        disabled={isSubmitting}
-                        type="submit"
-                        className="btn btn-primary btn-block">Login</button>
-                        <p className="text-center">Don't have account? <Link to="/signup">Register here</Link></p>
-                   
-                </form>
                 
             </Paper>
         </Grid>
