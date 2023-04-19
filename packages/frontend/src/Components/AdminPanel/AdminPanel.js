@@ -4,7 +4,7 @@ import {Paper, Stack, Button, Box} from "@mui/material";
 import CreateProduct from './ToolPanels/CreateProduct';
 import ModifyProduct from './ToolPanels/ModifyProduct';
 import CreateDiscountCode from './ToolPanels/CreateDiscountCode';
-import ModifyUsers from './ToolPanels/ModifyUsers';
+import ModifyUser from './ToolPanels/ModifyUser';
 import CurrentOrders from './ToolPanels/CurrentOrders';
 import OrderHistory from './ToolPanels/OrderHistory';
 
@@ -99,7 +99,7 @@ const AdminPanel = () => {
 			<Box
 				display={(activePanel === "modify_users") ? "block" : "none"}
 			>
-				<ModifyUsers/>
+				<ModifyUser/>
 			</Box>
 			
 			<Box
