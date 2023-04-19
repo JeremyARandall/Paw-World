@@ -77,8 +77,6 @@ export default function OrderHistory() {
 	
 	if (orders) {
 		
-		console.log(orders)
-		
 		return(
 			<Container>
 				<TableContainer align = "center">

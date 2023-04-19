@@ -76,8 +76,6 @@ export default function CurrentOrders() {
 	
 	if (orders) {
 		
-		console.log(orders)
-		
 		return(
 			<Container>
 				<TableContainer align = "center">
