@@ -1,38 +1,112 @@
-@media ( min-width: 200px )
+@media ( min-width: 200px ) 
 {
-    .NavBarGrid
+    .NavBarGrid 
     {
-        grid-template-columns: repeat(2,1fr);
-        height: 84px;
+      grid-template-columns: repeat(2, 1fr);
+      height: 120px !important;
     }
-}
-
-@media ( min-width: 800px )
-{
-    .NavBarGrid
+  
+    .site-title 
     {
-        grid-template-columns: repeat(4,1fr);
-        height: 56px;
+      font-size: 40px !important;
+      padding-top: 8rem !important;
+      height: auto !important;
     }
-}
-
-@media (min-width: 1200px )
-{
-    .NavBarGrid
+  
+    .navLink 
     {
-        grid-template-columns: repeat(5,1fr);
-        height: 28px;
+      font-size: 20px !important;
+      width: 90%;
+      height: auto !important;
     }
-}
-
-@media (min-width: 1600px )
-{
-    .NavBarGrid
+  }
+  
+  @media ( min-width: 480px ) 
+  {
+    .NavBarGrid 
     {
-        grid-template-columns: repeat(5,1fr);
-        height: 28px;
+      grid-template-columns: repeat(2, 1fr);
+      height: 110px !important;
     }
-}
+  
+    .site-title 
+    {
+      font-size: 40px !important;
+      padding-top: 8rem !important;
+      height: auto;
+    }
+  
+    .navLink 
+    {
+      font-size: 20px !important;
+      width: 200px;
+    }
+  }
+  
+  @media ( min-width: 800px )  
+  {
+    .NavBarGrid {
+      grid-template-columns: repeat(3, 1fr);
+      height: 60px !important;
+    }
+  
+    .site-title 
+    {
+      font-size: 50px !important;
+      padding-top: 8rem !important;
+      height: 100px;
+    }
+  
+    .navLink 
+    {
+      font-size: 20px !important;
+      width: 200px;
+    }
+  }
+  
+  @media ( min-width: 1024px ) 
+  {
+    .NavBarGrid 
+    {
+      grid-template-columns: repeat(5, 1fr);
+      height: 30px !important;
+    }
+  
+    .site-title 
+    {
+      font-size: 96px;
+      padding-top: 8rem !important;
+      height: 100px;
+    }
+  
+    .navLink 
+    {
+      font-size: 24px;
+      width: 200px;
+    }
+  }
+  
+  @media ( min-width: 1200px ) 
+  {
+    .NavBarGrid 
+    {
+      grid-template-columns: repeat(5, 1fr);
+      height: 30px !important;
+    }
+  
+    .site-title 
+    {
+      font-size: 96px;
+      padding-top: 8rem !important;
+      height: 100px;
+    }
+  
+    .navLink 
+    {
+      font-size: 24px;
+      width: 200px;
+    }
+  }
 
 .itemsLeftBadge
 {
@@ -49,7 +123,6 @@
     box-shadow: 0px -6px 13px rgba(0, 0, 0, 0.3) !important;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
-    height: 100px;
 }
 
 .site-title
@@ -67,19 +140,19 @@
 
 .navLink
 {
-    width: 200px;
     font-size: 20px;
-    text-align: center;
+    text-align: center !important;
     font-weight: bold;
     text-decoration: none;
     border-top-right-radius: 0.5rem !important;
     border-top-left-radius: 0.5rem !important;
     color:#f3f8ff !important;
+    align-items: center  !important;
+    justify-content: center !important;
 }
 
 .navLink:hover
 {
-    transition: border-bottom 0.4s;
     border-top: 0.5px solid #f3f8ff !important;
     border-right: 0.5px solid #f3f8ff !important;
     border-left: 0.5px solid #f3f8ff !important;

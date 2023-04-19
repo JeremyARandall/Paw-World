@@ -88,7 +88,6 @@ const ProductPage = () => {
           </Box>
         </Grid>
       </div>
-      
     )
   );
 };
