@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
 	passwordHash: String,
 	salt: String,
 	email: String,
-	phone: Number,
+	phone: String,
 	cart: [{
 		productId: Number,
 		quantity: Number
@@ -16,3 +16,4 @@ const userSchema = mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 export default User;
+
