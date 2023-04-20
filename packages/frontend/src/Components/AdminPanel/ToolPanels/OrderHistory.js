@@ -4,14 +4,27 @@ import {palette} from '@mui/system'
 import logger from 'use-reducer-logger';
 import * as api from '../../../api';
 
-const reducer = (state, action) => {
+const ordersReducer = (state, action) => {
 	switch (action.type) {
 		case 'FETCH_REQUEST':
-			return { ...state, loading: true };
+			return { ...state, ordersLoading: true };
 		case 'FETCH_SUCCESS':
-			return { ...state, orders: action.payload, loading: false };
+			return { ...state, orders: action.payload, ordersLoading: false };
 		case 'FETCH_FAIL':
-			return { ...state, loading: false, error: action.payload };
+			return { ...state, ordersLoading: false, ordersError: action.payload };
+		default:
+			return state;
+	}
+}
+
+const usersReducer = (state, action) => {
+	switch (action.type) {
+		case 'FETCH_REQUEST':
+			return { ...state, usersLoading: true };
+		case 'FETCH_SUCCESS':
+			return { ...state, users: action.payload, usersLoading: false };
+		case 'FETCH_FAIL':
+			return { ...state, usersLoading: false, usersError: action.payload };
 		default:
 			return state;
 	}
@@ -52,36 +65,119 @@ function OrderRow(props) {
 
 export default function OrderHistory() {
 	
-	const [sortType, setSortType] = useState("order_date");
+	var userLookup = {};
+	
+	const [sortType, setSortType] = useState();
 
-	const updateSortType = (panelName) => {
-		setSortType(panelName);
+	const updateSortType = (newSortType) => {
+		setSortType(newSortType);
+		sortOrders(newSortType);
 	}
 	
-	const [{ loading, error, orders }, dispatch] = useReducer(logger(reducer), {
+	const sortOrders = (sortMethod) => {
+		
+		// -1: a is before b
+		//  1: a is after b
+		//  0: maintain order
+		
+		switch (sortMethod){
+			
+			case "order_history":
+				orders.sort( (a,b) => {
+					if (a.datePlaced > b.datePlaced) return -1;
+					if (a.datePlace < b.datePlaced) return 1;
+					return 0;
+				});
+				break;
+			
+			case "customer_name":
+				orders.sort( (a,b) => {
+					
+					const userA = userLookup[a.userId];
+					const userB = userLookup[b.userId];
+					
+					if (userA.last == userB.last) {
+						
+						if (userA.first == userB.first) return 0;
+						if (userA.first < userB.first) return -1;
+						return 1;
+						
+					}
+					
+					else {
+						if (userA.last < userB.last) return -1;
+						return 1;
+					}
+				});
+				break;
+			
+			case "most_expensive":
+				orders.sort( (a,b) => {
+					if (a.totalPrice == b.totalPrice) return 0;
+					if (a.totalPrice > b.totalPrice) return -1;
+					return 1;
+				});
+				break;
+			
+			case "least_expensive":
+				orders.sort( (a,b) => {
+					if (a.totalPrice == b.totalPrice) return 0;
+					if (a.totalPrice < b.totalPrice) return -1;
+					return 1;
+				});
+				break;
+			
+		}
+	}
+	
+	const [{ ordersLoading, ordersError, orders }, ordersDispatch] = useReducer(logger(ordersReducer), {
 		orders: [],
-		loading: true,
-		error: '',
+		ordersLoading: true,
+		ordersError: '',
+	})
+	
+	const [{ usersLoading, usersError, users }, usersDispatch] = useReducer(logger(usersReducer), {
+		users: [],
+		usersLoading: true,
+		usersError: '',
 	})
 
 	useEffect(() => {
 
 		const getPastOrders = async () => {
 			
-			dispatch({ type: 'FETCH_REQUEST' });
+			ordersDispatch({ type: 'FETCH_REQUEST' });
 			
 			try {
 				const result = await api.fetchPastOrders();
-				dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+				ordersDispatch({ type: 'FETCH_SUCCESS', payload: result.data });
 			} catch (err) {
-				dispatch({ type: 'FETCH_FAIL', payload: err.message });
+				ordersDispatch({ type: 'FETCH_FAIL', payload: err.message });
+			}
+		}
+		
+		const getUsers = async () => {
+			
+			usersDispatch({ type: 'FETCH_REQUEST' });
+			
+			try {
+				const result = await api.fetchUsers();
+				usersDispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+			} catch (err) {
+				usersDispatch({ type: 'FETCH_FAIL', payload: err.message });
 			}
 		}
 		
 		getPastOrders();
+		updateSortType("most_recent");
+		
+		getUsers();
+		for (const user in users){
+			userLookup[user._id] = {first: user.firstName, last: user.lastName}
+		}
 		
 	}, []);
-		
+	
 	if (orders.length == 0) {
 		return(
 			<Container>
@@ -103,10 +199,10 @@ export default function OrderHistory() {
 			>
 				<Button
 					size = "small"
-					variant = { (sortType === "order_date") ? "contained" : "outlined" }
-					onClick = { () => updateSortType("order_date") }
+					variant = { (sortType === "most_recent") ? "contained" : "outlined" }
+					onClick = { () => updateSortType("most_recent") }
 				>
-					Order Date
+					Most Recent
 				</Button>
 				
 				<Button
@@ -114,15 +210,23 @@ export default function OrderHistory() {
 					variant = { (sortType === "customer_name") ? "contained" : "outlined" }
 					onClick = { () => updateSortType("customer_name") }
 				>
-					Customer Name
+					Customer Name (A-Z)
 				</Button>
 				
 				<Button
 					size = "small"
-					variant = { (sortType === "order_price") ? "contained" : "outlined" }
-					onClick = { () => updateSortType("order_price") }
+					variant = { (sortType === "most_expensive") ? "contained" : "outlined" }
+					onClick = { () => updateSortType("most_expensive") }
 				>
-					Order Price
+					Most Expensive
+				</Button>
+				
+				<Button
+					size = "small"
+					variant = { (sortType === "least_expensive") ? "contained" : "outlined" }
+					onClick = { () => updateSortType("least_expensive") }
+				>
+					Least Expensive
 				</Button>
 			</Stack>
 			
