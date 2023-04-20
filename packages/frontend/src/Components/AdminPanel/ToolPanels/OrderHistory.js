@@ -52,6 +52,12 @@ function OrderRow(props) {
 
 export default function OrderHistory() {
 	
+	const [sortType, setSortType] = useState("order_date");
+
+	const updateSortType = (panelName) => {
+		setSortType(panelName);
+	}
+	
 	const [{ loading, error, orders }, dispatch] = useReducer(logger(reducer), {
 		orders: [],
 		loading: true,
@@ -75,9 +81,7 @@ export default function OrderHistory() {
 		getPastOrders();
 		
 	}, []);
-	
-	console.log(orders)
-	
+		
 	if (orders.length == 0) {
 		return(
 			<Container>
@@ -88,6 +92,40 @@ export default function OrderHistory() {
 		
 	return(
 		<Container>
+			
+			<Stack
+				direction = "row"
+				justifyContent = "center"
+				alignItems = "center"
+				spacing = {2}
+				marginTop = "15px"
+				marginBottom = "15px"
+			>
+				<Button
+					size = "small"
+					variant = { (sortType === "order_date") ? "contained" : "outlined" }
+					onClick = { () => updateSortType("order_date") }
+				>
+					Order Date
+				</Button>
+				
+				<Button
+					size = "small"
+					variant = { (sortType === "customer_name") ? "contained" : "outlined" }
+					onClick = { () => updateSortType("customer_name") }
+				>
+					Customer Name
+				</Button>
+				
+				<Button
+					size = "small"
+					variant = { (sortType === "order_price") ? "contained" : "outlined" }
+					onClick = { () => updateSortType("order_price") }
+				>
+					Order Price
+				</Button>
+			</Stack>
+			
 			<TableContainer align = "center">
 			
 				<TableHead>
