@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useReducer} from "react";
-import {TableContainer, TableHead, TableBody, TableRow, TableCell, IconButton, Box, Container, Stack, Button, TextField, Alert, Collapse} from '@mui/material'
+import {TableContainer, TableHead, TableBody, TableRow, TableCell, Typography, IconButton, Box, Container, Stack, Button, TextField, Alert, Collapse} from '@mui/material'
 import {ExpandMore, ExpandLess} from '@mui/icons-material'
 import FileBase from 'react-file-base64';
 import logger from 'use-reducer-logger';
@@ -221,6 +221,14 @@ export default function ModifyProduct() {
 		
 	}, []);
 	
+	if (products.length == 0) {
+		return(
+			<Container>
+				<Typography align="center"> No products found. </Typography>
+			</Container>
+		);
+	}
+		
 	return(
 		<Container>
 			<TableContainer align = "center">

@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useReducer} from "react";
 import {TableContainer, TableHead, TableBody, TableRow, TableCell, Stack, Typography, Container, Button} from '@mui/material'
+import {palette} from '@mui/system'
 import logger from 'use-reducer-logger';
 import * as api from '../../../api';
 
@@ -75,36 +76,37 @@ export default function OrderHistory() {
 		
 	}, []);
 	
-	if (orders) {
-		
+	console.log(orders)
+	
+	if (orders.length == 0) {
 		return(
 			<Container>
-				<TableContainer align = "center">
-				
-					<TableHead>
-						<TableRow>
-							<TableCell align="left"> ID </TableCell>
-							<TableCell align="right"> User ID </TableCell>
-							<TableCell align="center"> Items </TableCell>
-							<TableCell align="right"> Date Placed </TableCell>
-							<TableCell align="right"> Date Fulfilled </TableCell>
-						</TableRow>
-					</TableHead>
-					
-					<TableBody>
-						{orders.map( (order) => (
-							<OrderRow order = {order}/>
-						))}
-					</TableBody>
-					
-				</TableContainer>
+				<Typography align="center"> No orders found. </Typography>
 			</Container>
 		);
 	}
-	
-	else{
-		return(
-			<Typography> No orders found. </Typography>
-		);
-	}
+		
+	return(
+		<Container>
+			<TableContainer align = "center">
+			
+				<TableHead>
+					<TableRow>
+						<TableCell align="left"> ID </TableCell>
+						<TableCell align="right"> User ID </TableCell>
+						<TableCell align="center"> Items </TableCell>
+						<TableCell align="right"> Date Placed </TableCell>
+						<TableCell align="right"> Date Fulfilled </TableCell>
+					</TableRow>
+				</TableHead>
+				
+				<TableBody>
+					{orders.map( (order) => (
+						<OrderRow order = {order}/>
+					))}
+				</TableBody>
+				
+			</TableContainer>
+		</Container>
+	);
 }

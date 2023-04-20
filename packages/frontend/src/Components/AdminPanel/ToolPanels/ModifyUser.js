@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useReducer} from "react";
-import {TableContainer, TableHead, TableBody, TableRow, TableCell, IconButton, Box, Container, Stack, Button, TextField, Alert, Collapse} from '@mui/material'
+import {TableContainer, TableHead, TableBody, TableRow, TableCell, Typography, IconButton, Box, Container, Stack, Button, TextField, Alert, Collapse} from '@mui/material'
 import {ExpandMore, ExpandLess} from '@mui/icons-material'
 import logger from 'use-reducer-logger';
 import * as api from '../../../api';
@@ -182,6 +182,14 @@ export default function ModifyUser() {
 		
 	}, []);
 	
+	if (users.length == 0) {
+		return(
+			<Container>
+				<Typography align="center"> No users found. </Typography>
+			</Container>
+		);
+	}
+		
 	return(
 		<Container>
 			<TableContainer align = "center">
