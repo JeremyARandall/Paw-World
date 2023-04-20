@@ -44,8 +44,8 @@ export const getUserById = async (req, res) => {
 export const updateUserById = async (req, res) => {
 
 	const { id } = req.params;
-	const { username, passwordHash, salt, email, phone, cart, isAdmin } = req.body;
-	const updated = { username, passwordHash, salt, email, phone, cart, isAdmin, _id: id};
+	const { username, passwordHash, salt, firstName, lastName, email, phone, cart, isAdmin } = req.body;
+	const updated = { username, passwordHash, salt, firstName, lastName, email, phone, cart, isAdmin, _id: id};
 
 	try{
 		await User.findByIdAndUpdate(id, updated, {new: true});
