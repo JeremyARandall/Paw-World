@@ -8,12 +8,12 @@ export default function NavBar() {
 
     const { state } = useContext(Store);
     const { cart } = state;
-    const productsMatch = useMatch( "/products" );
-    const cartMatch = useMatch( "/cart" );
-    const adminMatch = useMatch( "/admin" );
+    const productsMatch = useMatch("/products");
+    const cartMatch = useMatch("/cart");
+    const adminMatch = useMatch("/admin");
     //const signupMatch = useMatch( "/signup" );
-    const signupMatch = useMatch( "/login" ); //signup
-    const signup = useMatch( "/signup" ); 
+    const signupMatch = useMatch("/login"); //signup
+    const signup = useMatch("/signup");
 
     return (
 
@@ -27,25 +27,25 @@ export default function NavBar() {
 
                 <Grid className="NavBarGrid">
 
-                    <Link className={ `navLink ${ productsMatch ? "active" : "" }` } to="/products">
+                    <Link className={`navLink ${productsMatch ? "active" : ""}`} to="/products">
                         Products
                     </Link>
-                    
-                    <Link className={ `navLink ${ cartMatch ? "active" : "" }` } to="/cart">Cart{cart.cartItems.length > 0 && (
+
+                    <Link className={`navLink ${cartMatch ? "active" : ""}`} to="/cart">Cart{cart.cartItems.length > 0 && (
                         <Badge className="itemsLeftBadge" badgeContent={cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                             color="secondary">
                         </Badge>)}
                     </Link>
 
-                    <Link className={ `navLink ${ adminMatch ? "active" : "" }` } to="/admin">
+                    <Link className={`navLink ${adminMatch ? "active" : ""}`} to="/admin">
                         Admin
                     </Link>
 
-                    <Link className={ `navLink ${ signupMatch ? "active" : "" }` } to="/login">
+                    <Link className={`navLink ${signupMatch ? "active" : ""}`} to="/login">
                         Login
                     </Link>
-                    <Link className={ `navLink ${ signup ? "active" : "" }` } to="/signup"> 
-                        Sign Up 
+                    <Link className={`navLink ${signup ? "active" : ""}`} to="/signup">
+                        Sign Up
                     </Link>
 
                 </Grid >

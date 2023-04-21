@@ -7,6 +7,7 @@ export const fetchUsers = () => API.get('/users');
 export const fetchUserById = (_id) => API.get(`/users/id/${_id}`);
 export const updateUserById = (_id, updated) => API.patch(`/users/id/${_id}`, updated);
 export const deleteUserById = (_id) => API.delete(`/users/id/${_id}`);
+export const login = () => API.post('/users/login');
 
 export const createProduct = (newProduct) => API.post('/products', newProduct);
 export const fetchProducts = () => API.get('/products');

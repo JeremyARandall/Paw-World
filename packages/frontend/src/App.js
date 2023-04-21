@@ -35,6 +35,7 @@ function App() {
             <Route path="/admin" element={<AdminPanel />} /*current method to add products to db during development*/ />
             <Route path="/products/:id" element={<ProductPage />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path='/' element={<ProductsPage />} />
           </Routes>
         </main>
 
