@@ -58,13 +58,13 @@ export default function Checkout( )
 
                     <Grid /* grid for subtotal/tax/total */ className='checkoutTotalGrid' item>
                         <Box className="checkoutSubtotal">
-                            Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '} items) : <span style={{color: "red" }}>$
+                            Subtotal : <span style={{color: "red" }}>$
                                 {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}</span>
                         </Box>
-                        <Box className="checkoutTax">Taxes : ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '} items) : <span style={{color: "red" }}>$
+                        <Box className="checkoutTax">Taxes : <span style={{color: "red" }}>$
                                 {cartItems.reduce((a, c) => a + c.price * c.quantity * 0.0825, 0)}</span>
                         </Box>
-                        <Box className="checkoutTotal">Total : ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '} items) : <span style={{color: "red" }}>$
+                        <Box className="checkoutTotal">Total : <span style={{color: "red" }}>$
                                 {cartItems.reduce((a, c) => (a + c.price * c.quantity), 0) + cartItems.reduce((a, c) => a + c.price * c.quantity * 0.0825, 0)}</span>
                         </Box>
                     </Grid>              
