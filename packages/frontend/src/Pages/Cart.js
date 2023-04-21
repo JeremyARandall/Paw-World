@@ -28,7 +28,7 @@ export default function Cart() {
         ctxDispatch({ type: 'REMOVE_FROM_CART', payload: item })
     }
     const checkoutHandler = () => {
-        navigate('signin?redirect=/checkout')
+        navigate('/Checkout')
     }
     return (
         <div className="cartDiv">

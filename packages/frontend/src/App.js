@@ -9,7 +9,7 @@ import ProductsPage from './Pages/Products';
 import AdminPanel from './Components/AdminPanel/AdminPanel';
 import Signup from './Pages/signup';
 import Cart from './Pages/Cart';
-
+import Checkout from './Pages/Checkout';
 import ProductPage from './Pages/ProductPage';
 import { Store } from './Store';
 import NavBar from './Components/NavBar/NavBar';
@@ -36,6 +36,8 @@ function App() {
             <Route path="/products/:id" element={<ProductPage />} />
             <Route path="/cart" element={<Cart />} />
             <Route path='/' element={<ProductsPage />} />
+            <Route path="/Checkout" element={<Checkout />} />
+
           </Routes>
         </main>
 

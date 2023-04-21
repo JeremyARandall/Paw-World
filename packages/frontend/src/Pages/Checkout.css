@@ -1,0 +1,225 @@
+@media ( min-width: 200px )
+{
+    .checkoutTitleWrapper
+    {
+        width: 90% !important;
+    }
+
+    .checkoutWrapper
+    {
+        width: 90% !important;
+        grid-template-columns: repeat( 1, 1fr ) !important;
+    }
+
+    .checkoutPayButton
+    {
+        width: auto !important;
+        height: 30px !important;
+    }
+
+    .rightSide
+    {
+        margin-top: 1rem;
+    }
+}
+
+@media ( min-width: 480px )
+{
+    .checkoutTitleWrapper
+    {
+        width: 500px !important;
+    }
+
+    .checkoutWrapper
+    {
+        width: 500px !important;
+        grid-template-columns: repeat( 1, 1fr ) !important;
+    }
+
+    .checkoutPayButton
+    {
+        width: 400px !important;
+        height: 30px !important;
+    }
+
+    .rightSide
+    {
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 800px )
+{
+    .checkoutTitleWrapper
+    {
+        width: 700px !important;
+    }
+
+    .checkoutWrapper
+    {
+        width: 700px !important;
+        grid-template-columns: repeat( 2, 1fr ) !important;
+    }
+
+    .checkoutPayButton
+    {
+        width: 400px !important;
+        height: 30px !important;
+    }
+
+    .rightSide
+    {
+        margin-top: 0rem;
+    }
+}
+
+@media (min-width: 1024px )
+{
+    .checkoutTitleWrapper
+    {
+        width: 800px !important;
+    }
+
+    .checkoutWrapper
+    {
+        width: 800px !important;
+        grid-template-columns: repeat( 2, 1fr ) !important;
+    }
+
+    .checkoutPayButton
+    {
+        width: 400px !important;
+        height: 30px !important;
+    }
+
+    .rightSide
+    {
+        margin-top: 0rem;
+    }
+}
+
+@media (min-width: 1200px )
+{
+    .checkoutTitleWrapper
+    {
+        width: 1100px !important;
+    }
+
+    .checkoutWrapper
+    {
+        width: 1100px !important;
+        grid-template-columns: repeat( 2, 1fr ) !important;
+    }
+
+    .checkoutPayButton
+    {
+        width: 400px !important;
+        height: 30px !important;
+    }
+
+    .rightSide
+    {
+        margin-top: 0rem;
+    }
+}
+
+.CheckoutDiv
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.checkoutWrapper
+{
+    background-color: #B2CAEB !important;
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: grid !important;
+    justify-items: center !important;
+}
+
+.CheckoutTitle
+{
+    text-align: left !important;
+    font-size: 30px;
+    padding: 1rem;
+    color: #375c8f !important;
+}
+
+.checkoutTitleWrapper
+{
+    background-color: #B2CAEB !important;
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 0.5rem;
+    color:black !important;
+    height: 50px;    
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkoutItems
+{
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 0.5rem;
+    background-color: #f3f8ff !important;
+    padding: 1rem;
+    width: 95%;
+    font-size: 18px !important;
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.checkoutItem 
+{
+    display: grid !important;
+    grid-template-columns: 5fr 1fr !important;
+}
+
+.rightSide
+{
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 0.5rem;
+    background-color: #f3f8ff !important;
+    padding: 1rem;
+    width: 95%;
+}
+
+.deliveryInstructions, .discountCode
+{
+    margin-top: 1rem !important;
+}
+
+.checkoutTotalGrid
+{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 50%;
+}
+
+.checkoutPayButton
+{
+    background-color: #B2CAEB !important;
+    margin-top: 1rem;
+    height: 40px;
+    color: #375c8f !important;
+    font-weight: bold !important;
+    margin-top: 1rem !important;
+}
+
+.checkoutPayButton:hover
+{
+    transition: 0.4s;
+    border-color:#375c8f !important;
+    border-width: 0.2px;
+    border-style: solid;
+    background-color: #375c8f !important;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+    color: #B2CAEB !important;
+    font-weight: bold !important;
+}
