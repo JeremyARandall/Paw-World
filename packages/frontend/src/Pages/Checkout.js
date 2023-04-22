@@ -10,16 +10,19 @@ export default function Checkout() {
     const navigate = useNavigate();
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const [orderPlaced, setOrderPlaced] = useState(false);
-    const { cart, cart: cartItems, userInfo, } = state;
+    const { cart, userInfo, } = state;
     //const [subtotal, setSubtotal] = useState((cartItems.reduce((a, c) => a + c.price * c.quantity, 0)));
     //const [taxes, setTaxes] = useState(Math.round((subtotal * 0.0825 + Number.EPSILON) * 100) / 100);
     //const [total, setTotal] = useState(subtotal + taxes);
     const [discount, setDiscount] = useState("");
+    cart.subtotal = cart.cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
+    cart.taxes = Math.round((cart.subtotal * 0.0825 + Number.EPSILON) * 100) / 100;
+    cart.total = cart.taxes + cart.subtotal;
     const [orderData, setOrderData] = useState({
         userId: userInfo._id,
-        subtotal: 0,
-        tax: 0,
-        total: 0,
+        subtotal: cart.subtotal,
+        tax: cart.taxes,
+        total: cart.total,
         dicount: '',
         Address1: '',
         Address2: '',
@@ -27,10 +30,11 @@ export default function Checkout() {
         City: '',
         State: '',
         ZIP: null,
-        products: [],
+        products: cart.cartItems,
         Instructions: '',
         datePlaced: new Date()
     });
+
     const [productData, setProductData] = useState({
         name: '',
         description: '',
@@ -40,15 +44,24 @@ export default function Checkout() {
         productImage: '',
         stockRemaining: ""
     });
-    cart.subtotal = cart.cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
-    cart.taxes = Math.round((cart.subtotal * 0.0825 + Number.EPSILON) * 100) / 100;
-    cart.total = cart.taxes + cart.subtotal;
+
+
     /*const [price, setPrice] = useState({
         subtotal: cartItems.reduce((a, c) => a + c.price * c.quantity, 0),
         taxes: Math.round((cartItems.reduce((a, c) => a + c.price * c.quantity, 0) * 0.0825 + Number.EPSILON) * 100) / 100,
         total: Math.round((cartItems.reduce((a, c) => a + c.price * c.quantity, 0) * 1.0825 + Number.EPSILON) * 100) / 100,
     })
 */
+    const updateStock = async (item) => {
+        try {
+            //const { data } = await api.fetchProductById(item._id);
+            const remaining = item.stockRemaining - item.quantity;
+
+            await api.updateProductById(item._id, { stockRemaining: remaining });
+        } catch (err) {
+            console.error(err);
+        }
+    }
     const placeOrderHandler = async () => {
 
         //create new Order
@@ -60,29 +73,16 @@ export default function Checkout() {
             console.error(err);
         }
         //remove items in order from inventory
-        if (setOrderPlaced) {
-            (cart.cartItems.map(async (item) => {
-                try {
-                    const { data } = await api.fetchProductById(item._id);
-                    const remaining = data.stockRemaining - item.quantity;
-                    setProductData({
-                        name: item.name,
-                        brand: item.brand,
-                        price: item.price,
-                        productImage: item.productImage,
-                        stockRemaining: remaining,
-                        tags: item.tags
-                    });
-                    setProductData({ ...productData, stockRemaining: remaining })
-                    await api.updateProductById(item._id, productData);
-                } catch (err) {
-                    console.error(err);
-                }
-            }))
-        }
-        //remove all items from cart
+
+        (cart.cartItems.map((item) => {
+            updateStock(item);
+        }))
         ctxDispatch({ type: "CLEAR_CART_STOCK" });
         localStorage.removeItem('cartItems');
+        setOrderPlaced(false);
+
+        //remove all items from cart
+
         //navigate back to products page
         navigate('/Products');
     }
@@ -128,7 +128,7 @@ export default function Checkout() {
             </Box>
             <Grid className="checkoutWrapper">
                 <Grid /* grid for display of items in cart */ item className='checkoutItems'>
-                    {cartItems.length === 0 ? (
+                    {cart.cartItems.length === 0 ? (
                         <Alert severity="warning">Cart is empty</Alert>
                     ) :
                         (
