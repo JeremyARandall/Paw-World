@@ -85,6 +85,7 @@ export const login = expressAsyncHandler(async (req, res) => {
 				lastName: user.lastName,
 				email: user.email,
 				phone: user.phone,
+				isAdmin: user.isAdmin,
 				token: generateToken(user)
 
 			});

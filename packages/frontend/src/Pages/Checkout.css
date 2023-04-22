@@ -190,10 +190,12 @@
     width: 95%;
 }
 
-.deliveryInstructions, .discountCode
+.deliveryInstructions, .discountCode 
 {
     margin-top: 1rem !important;
 }
+
+
 
 .checkoutTotalGrid
 {
@@ -201,7 +203,31 @@
     padding-right: 1rem;
     padding-top: 50%;
 }
+.discountButton
+{
+    background-color: #B2CAEB !important;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    height: 40px;
+    color: #375c8f !important;
+    font-weight: bold !important;
+    margin-top: 1rem !important;
+    
+    
+}
 
+.discountButton:hover
+{
+    transition: 0.4s;
+    border-color:#375c8f !important;
+    border-width: 0.2px;
+    border-style: solid;
+    background-color: #375c8f !important;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+    color: #B2CAEB !important;
+    font-weight: bold !important;
+}
 .checkoutPayButton
 {
     background-color: #B2CAEB !important;

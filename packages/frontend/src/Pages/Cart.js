@@ -28,17 +28,17 @@ export default function Cart() {
         ctxDispatch({ type: 'REMOVE_FROM_CART', payload: item })
     }
     const checkoutHandler = () => {
-        navigate('/Checkout')
+        navigate('/login?redirect=/checkout')
     }
     return (
         <div className="cartDiv">
             <Box className="shoppingCartTitleWrapper" >
                 <h1 className="ShoppingCartTitle" >Shopping Cart</h1>
             </Box>
-            
-            
+
+
             <Grid container className="shoppingCartPage">
-                <Grid item > 
+                <Grid item >
                     {cartItems.length === 0 ? (
                         <Alert severity="warning">Cart is empty</Alert>
                     ) :
@@ -46,46 +46,46 @@ export default function Cart() {
                             <List className="listItems">
                                 {cartItems.map((item) => {
                                     return <ListItem className="ListItemWrapperCart" key={item._id}>
-                                                <ListItemAvatar className={`${ListItemAvatar} listItemAvatar`}>
-                                                    <Avatar className="avatar" src={item.productImage} alt={item.name}></Avatar>
-                                                </ListItemAvatar>
-                                                <Link className="productInCartLink" to={`/products/${item._id}`}>{`${item.name}`}</Link>
-                                                <Grid className="productCartGrid">
-                                                    <Box>
-                                                        <IconButton className="increaseDecreaseButton" aria-label="decrease" onClick={() => addToCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>
-                                                            <RemoveCircleIcon />
-                                                        </IconButton>
-                                                    </Box>
-                                                    <Box>
-                                                        <Typography className="productInCartQuantity">
-                                                            {item.quantity}
-                                                        </Typography>
-                                                    </Box>
-                                                    <Box>
-                                                        <IconButton className="increaseDecreaseButton" aria-label="increase" onClick={() => addToCartHandler(item, item.quantity + 1)} disabled={item.quantity === item.stockRemaining}>
-                                                            <AddCircleIcon/>
-                                                        </IconButton>
-                                                    </Box>
-                                                    <Box>
-                                                        <Typography className="productInCartPrice">
-                                                            ${item.price}
-                                                        </Typography>
-                                                    </Box>
-                                                    <Box>
-                                                        <IconButton className="removeButton" aria-label="remove" onClick={() => removeItemHandler(item)}>
-                                                            <DeleteIcon />
-                                                        </IconButton>
-                                                    </Box>
-                                                </Grid>
-                                        </ListItem>
+                                        <ListItemAvatar className={`${ListItemAvatar} listItemAvatar`}>
+                                            <Avatar className="avatar" src={item.productImage} alt={item.name}></Avatar>
+                                        </ListItemAvatar>
+                                        <Link className="productInCartLink" to={`/products/${item._id}`}>{`${item.name}`}</Link>
+                                        <Grid className="productCartGrid">
+                                            <Box>
+                                                <IconButton className="increaseDecreaseButton" aria-label="decrease" onClick={() => addToCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>
+                                                    <RemoveCircleIcon />
+                                                </IconButton>
+                                            </Box>
+                                            <Box>
+                                                <Typography className="productInCartQuantity">
+                                                    {item.quantity}
+                                                </Typography>
+                                            </Box>
+                                            <Box>
+                                                <IconButton className="increaseDecreaseButton" aria-label="increase" onClick={() => addToCartHandler(item, item.quantity + 1)} disabled={item.quantity === item.stockRemaining}>
+                                                    <AddCircleIcon />
+                                                </IconButton>
+                                            </Box>
+                                            <Box>
+                                                <Typography className="productInCartPrice">
+                                                    ${item.price}
+                                                </Typography>
+                                            </Box>
+                                            <Box>
+                                                <IconButton className="removeButton" aria-label="remove" onClick={() => removeItemHandler(item)}>
+                                                    <DeleteIcon />
+                                                </IconButton>
+                                            </Box>
+                                        </Grid>
+                                    </ListItem>
                                 })}
                             </List>
                         )}
                 </Grid>
 
                 <Grid className="subtotalGrid" item  /*displays the subtotal and the total item count*/>
-                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '} items) : <span style={{color: "red" }}>$
-                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}</span>
+                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '} items) : <span style={{ color: "red" }}>$
+                        {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}</span>
                 </Grid>
                 <Box className="exitCartButtonWrapper">
                     <Button className="exitCartButton" type="button" onClick={checkoutHandler} variant="secondary" disabled={cartItems.length === 0}>Proceed to Checkout</Button>

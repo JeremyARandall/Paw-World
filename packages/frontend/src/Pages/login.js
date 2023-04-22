@@ -13,19 +13,25 @@ function Login() {
     const [password, setPassword] = useState("");
 
     const { state, dispatch: ctxDispatch } = useContext(Store);
+    const { userInfo } = state;
     const [validationErrors, setValidationErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const signupMatch = useMatch("/signup");
+
+    const { search } = useLocation();
+    const redirectURL = new URLSearchParams(search).get('redirect');
+    const redirect = redirectURL ? redirectURL : '/';
     useEffect(() => {
-        if (localStorage.getItem('token') != "" && localStorage.getItem('token') != null) {
+        if (localStorage.getItem('userInfo') != "" && localStorage.getItem('userInfo') != null) {
             navigate(`${redirect}`);
         }
-        console.log(localStorage.getItem('token'))
-    }, [])
+        console.log(localStorage.getItem('userInfo'))
+    }, [navigate, redirect, userInfo])
 
     const loginAction = async (e) => {
         console.log('submit');
         setValidationErrors({})
+
         e.preventDefault();
         setIsSubmitting(true)
         let payload = {
@@ -34,12 +40,14 @@ function Login() {
         }
         try {
             const { data } = await axios.post('http://localhost:5000/api/users/login', payload);
+            ctxDispatch({ type: 'USER_LOGIN', payload: data })
             setIsSubmitting(false)
             console.log(data)
-            localStorage.setItem('token', data.token)
-            navigate(`${redirect}`);
+            localStorage.setItem('userInfo', JSON.stringify(data));
+            navigate(redirect || '/');
 
         } catch (err) {
+            alert('Invalid credentials, please try again');
             setIsSubmitting(false)
             console.log(err);
             if (err !== undefined) {
@@ -56,9 +64,7 @@ function Login() {
         fontSize: '100px', // adjust the font size as per your requirement
     }
 
-    const { search } = useLocation();
-    const redirectURL = new URLSearchParams(search).get('redirect');
-    const redirect = redirectURL ? redirectURL : '/';
+
     return (
         <Grid>
             <Paper elevation={20} style={paperStyle}>

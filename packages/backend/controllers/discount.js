@@ -27,7 +27,7 @@ export const getDiscounts = async (req, res) => {
 };
 
 export const getDiscountById = async (req, res) => {
-	
+
 	try {
 		const discount = await Discount.findById(req.params.id);
 		if (discount) {
@@ -45,10 +45,10 @@ export const updateDiscountById = async (req, res) => {
 
 	const { id } = req.params;
 	const { name, percent, code, expiration, productIds, userIds } = req.body;
-	const updated = { name, percent, code, expiration, productIds, userIds, _id: id};
+	const updated = { name, percent, code, expiration, productIds, userIds, _id: id };
 
-	try{
-		await Discount.findByIdAndUpdate(id, updated, {new: true});
+	try {
+		await Discount.findByIdAndUpdate(id, updated, { new: true });
 		res.status(200).json(updated);
 	}
 	catch (error) {
@@ -58,15 +58,30 @@ export const updateDiscountById = async (req, res) => {
 };
 
 export const deleteDiscountById = async (req, res) => {
-	
+
 	const { id } = req.params;
 
-	try{
+	try {
 		await Discount.findByIdAndDelete(id);
 		res.status(200).json(updated);
 	}
 	catch (error) {
 		console.error(error);
 		res.status(204).json({ message: error.message });
+	}
+};
+
+export const getDiscountByName = async (req, res) => {
+	try {
+		const discount = await Discount.findOne({ code: req.params.code });
+		if (discount) {
+			res.send(discount);
+		}
+		else {
+			res.status(404).send({ message: "Discount not found" });
+		}
+	} catch (err) {
+		console.error(error);
+		res.status(500).json({ message: err.message });
 	}
 };

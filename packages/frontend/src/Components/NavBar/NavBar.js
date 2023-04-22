@@ -1,19 +1,25 @@
 import { Card, Grid, Box, Badge } from "@mui/material"
 import { useContext } from "react";
-import { Link, useMatch } from "react-router-dom"
+import { Link, Navigate, useMatch, useNavigate } from "react-router-dom"
 import { Store } from "../../Store";
 import './NavBar.css';
 
 export default function NavBar() {
 
-    const { state } = useContext(Store);
-    const { cart } = state;
+    const { state, dispatch: ctxDispatch } = useContext(Store);
+    const { cart, userInfo } = state;
     const productsMatch = useMatch("/products");
     const cartMatch = useMatch("/cart");
     const adminMatch = useMatch("/admin");
     //const signupMatch = useMatch( "/signup" );
     const signupMatch = useMatch("/login"); //signup
-    const signup = useMatch("/signup");
+    const logoutMatch = useMatch("#logout");
+    const navigate = useNavigate();
+
+    const logoutHandler = (e) => {
+        ctxDispatch({ type: 'USER_LOGOUT' });
+        localStorage.removeItem('userInfo');
+    }
 
     return (
 
@@ -37,16 +43,21 @@ export default function NavBar() {
                         </Badge>)}
                     </Link>
 
-                    <Link className={`navLink ${adminMatch ? "active" : ""}`} to="/admin">
-                        Admin
-                    </Link>
 
-                    <Link className={`navLink ${signupMatch ? "active" : ""}`} to="/login">
-                        Login
-                    </Link>
-                    <Link className={`navLink ${signup ? "active" : ""}`} to="/signup">
-                        Sign Up
-                    </Link>
+                    {userInfo !== null && userInfo.isAdmin === true ? (<Link className={`navLink ${adminMatch ? "active" : ""}`} to="/admin">
+                        Admin
+                    </Link>)
+                        : ""}
+
+
+                    {userInfo && userInfo !== null ? (
+                        <Link className={`navLink ${logoutMatch ? "active" : ""}`} to="/" onClick={logoutHandler}>
+                            Log Out
+                        </Link>) :
+                        <Link className={`navLink ${signupMatch ? "active" : ""}`} to="/login">
+                            Login
+                        </Link>
+                    }
 
                 </Grid >
             </Card >

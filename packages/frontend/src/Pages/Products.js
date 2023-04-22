@@ -32,7 +32,9 @@ const ProductsPage = () => {
     const getProducts = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
+
         const result = await api.fetchProducts();
+
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });

@@ -9,6 +9,9 @@ const initialState = {
             ? JSON.parse(localStorage.getItem('cartItems'))
             : [],
     },
+    userInfo: localStorage.getItem('userInfo') ?
+        JSON.parse(localStorage.getItem('userInfo')) :
+        null,
 };
 
 function reducer(state, action) {
@@ -32,6 +35,12 @@ function reducer(state, action) {
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
             return { ...state, cart: { ...state.cart, cartItems } }; //return the existing state, update cart for state to have items not filtered out
         }
+        case 'USER_LOGIN':
+            return { ...state, userInfo: action.payload };
+        case 'USER_SIGNOUT':
+            return { ...state, userInfo: null }
+        case 'CLEAR_CART_STOCK':
+            return { ...state, cart: { ...state.cart, cartItems: [] } };
         default:
             return state;
     }

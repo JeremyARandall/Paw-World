@@ -28,3 +28,4 @@ export const fetchDiscounts = () => API.get('/discounts');
 export const fetchDiscountById = (_id) => API.get(`/discounts/id/${_id}`);
 export const updateDiscountById = (_id, updated) => API.patch(`/discounts/id/${_id}`, updated);
 export const deleteDiscountById = (_id) => API.delete(`/discounts/id/${_id}`);
+export const fetchDiscountByName = (code) => API.get(`/discounts/code/${code}`);
