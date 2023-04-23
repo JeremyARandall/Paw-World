@@ -83,12 +83,8 @@ export default function OrderHistory() {
 	
 		switch (sortMethod){
 			
-			case "order_history":
+			case "most_recent":
 				orders.sort( (a,b) => {
-					
-					console.log(a.datePlaced);
-					console.log(b.datePlaced);
-					
 					if (a.datePlaced > b.datePlaced) return -1;
 					if (a.datePlaced < b.datePlaced) return 1;
 					return 0;
@@ -100,9 +96,6 @@ export default function OrderHistory() {
 					
 					const userA = users.find((user) => user._id === a.userId);
 					const userB = users.find((user) => user._id === b.userId);
-					
-					console.log(userA.firstName);
-					console.log(userB.lastName);
 					
 					if (userA.lastName === userB.lastName) {
 						
