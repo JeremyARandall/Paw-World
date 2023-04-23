@@ -66,7 +66,7 @@ function Login() {
 
 
     return (
-        <Grid>
+        <Grid container justifyContent="center" alignItems="center" style={{ height: '100vh',backgroundColor: '#375c8f'}}>
             <Paper elevation={20} style={paperStyle}>
                 <Grid align='center'>
                     <Avatar style={avatarStyle}>
