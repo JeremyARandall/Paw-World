@@ -113,16 +113,16 @@ export default function OrderHistory() {
 			
 			case "most_expensive":
 				orders.sort( (a,b) => {
-					if (a.totalPrice == b.totalPrice) return 0;
-					if (a.totalPrice > b.totalPrice) return -1;
+					if (a.total == b.total) return 0;
+					if (a.total > b.total) return -1;
 					return 1;
 				});
 				break;
 			
 			case "least_expensive":
 				orders.sort( (a,b) => {
-					if (a.totalPrice == b.totalPrice) return 0;
-					if (a.totalPrice < b.totalPrice) return -1;
+					if (a.total == b.total) return 0;
+					if (a.total < b.total) return -1;
 					return 1;
 				});
 				break;
