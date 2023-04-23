@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useReducer } from "react";
 import { TableContainer, TableHead, TableBody, TableRow, TableCell, Stack, Typography, Container, Button } from '@mui/material'
-import { palette } from '@mui/system'
 import logger from 'use-reducer-logger';
 import * as api from '../../../api';
 
@@ -35,8 +34,8 @@ function Product(props) {
 
 	return (
 		<Stack
-			direction="row"
-			spacing={2}
+			direction = "row"
+			spacing = {2}
 		>
 			<Typography> ID: {product.productId}</Typography>
 			<Typography> Quantity: {product.quantity}</Typography>
@@ -53,8 +52,8 @@ function OrderRow(props) {
 			<TableCell align="left"> {order._id} </TableCell>
 			<TableCell align="center"> {order.userId} </TableCell>
 			<TableCell align="right">
-				{order.products.map((product) => (
-					<Product product={product} />
+				{order.products.map( (product) => (
+					<Product product = {product} />
 				))}
 			</TableCell>
 			<TableCell align="center"> {order.total} </TableCell>
@@ -227,22 +226,22 @@ export default function OrderHistory() {
 				</Button>
 			</Stack>
 
-			<TableContainer align="center">
+			<TableContainer align = "center">
 
 				<TableHead>
 					<TableRow>
-						<TableCell align="left"> ID </TableCell>
-						<TableCell align="center"> User ID </TableCell>
-						<TableCell align="center"> Items </TableCell>
-						<TableCell align="center"> Total Price </TableCell>
-						<TableCell align="right"> Date Placed </TableCell>
-						<TableCell align="right"> Date Fulfilled </TableCell>
+						<TableCell align = "left"> ID </TableCell>
+						<TableCell align = "center"> User ID </TableCell>
+						<TableCell align = "center"> Items </TableCell>
+						<TableCell align = "center"> Total Price </TableCell>
+						<TableCell align = "right"> Date Placed </TableCell>
+						<TableCell align = "right"> Date Fulfilled </TableCell>
 					</TableRow>
 				</TableHead>
 
 				<TableBody>
-					{orders.map((order) => (
-						<OrderRow order={order} />
+					{orders.map( (order) => (
+						<OrderRow order = {order}/>
 					))}
 				</TableBody>
 
