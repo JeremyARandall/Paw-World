@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useReducer} from "react";
-import {TableContainer, TableHead, TableBody, TableRow, TableCell, Stack, Typography, Container, Button} from '@mui/material'
+import {TableContainer, TableHead, TableBody, TableRow, TableCell, Stack, Typography, Container, IconButton, Button} from '@mui/material'
+import {Check} from '@mui/icons-material';
 import logger from 'use-reducer-logger';
 import * as api from '../../../api';
 
@@ -34,6 +35,20 @@ function Product(props){
 function OrderRow(props) {
 	const {order} = props;
 	
+	const [successAlertOpen, setSuccessAlertOpen] = useState(false);
+	const [errorAlertOpen, setErrorAlertOpen] = useState(false);
+	
+	const completeOrder = async () => {
+		try {
+			const result = await api.updateOrderById(order._id, {...order, dateFulfilled: new Date()});
+			alert("Order successfully marked as complete. Please refresh the page to see changes reflected.");
+		}
+		catch (error) {
+			setErrorAlertOpen(true);
+			alert("Order completion failed.");
+		}
+	}
+	
 	return (
 			<TableRow>
 				<TableCell align="left"> {order._id} </TableCell>
@@ -44,8 +59,17 @@ function OrderRow(props) {
 					))}
 				</TableCell>
 				<TableCell align="right"> {order.datePlaced.split("T")[0]} </TableCell>
+				<TableCell align="center">
+					<IconButton
+						aria-label="check"
+						size="small"
+						onClick={() => completeOrder()}
+					>
+						<Check/>
+					</IconButton>
+				</TableCell>
 			</TableRow>
-	)
+	);
 }
 
 export default function CurrentOrders() {
@@ -92,12 +116,14 @@ export default function CurrentOrders() {
 						<TableCell align="right"> User ID </TableCell>
 						<TableCell align="center"> Items </TableCell>
 						<TableCell align="right"> Date Placed </TableCell>
+						<TableCell align="center"> Mark Complete </TableCell>
 					</TableRow>
 				</TableHead>
 				
 				<TableBody>
 					{orders.map( (order) => (
 						<OrderRow order = {order}/>
+						
 					))}
 				</TableBody>
 				
