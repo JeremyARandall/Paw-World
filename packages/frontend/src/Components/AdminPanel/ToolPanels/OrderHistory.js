@@ -51,12 +51,13 @@ function OrderRow(props) {
 	return (
 			<TableRow>
 				<TableCell align="left"> {order._id} </TableCell>
-				<TableCell align="right"> {order.userId} </TableCell>
+				<TableCell align="center"> {order.userId} </TableCell>
 				<TableCell align="right">
 					{order.products.map( (product) => (
 							<Product product = {product}/>
 					))}
 				</TableCell>
+				<TableCell align="center"> {order.total} </TableCell>
 				<TableCell align="right"> {order.datePlaced.split("T")[0]} </TableCell>
 				<TableCell align="right"> {order.dateFulfilled.split("T")[0]} </TableCell>
 			</TableRow>
@@ -75,17 +76,21 @@ export default function OrderHistory() {
 	}
 	
 	const sortOrders = (sortMethod) => {
-		
-		// -1: a is before b
-		//  1: a is after b
-		//  0: maintain order
-		
+	
+	// -1: a is before b
+	//  1: a is after b
+	//  0: maintain order
+	
 		switch (sortMethod){
 			
 			case "order_history":
 				orders.sort( (a,b) => {
+					
+					console.log(a.datePlaced);
+					console.log(b.datePlaced);
+					
 					if (a.datePlaced > b.datePlaced) return -1;
-					if (a.datePlace < b.datePlaced) return 1;
+					if (a.datePlaced < b.datePlaced) return 1;
 					return 0;
 				});
 				break;
@@ -93,19 +98,22 @@ export default function OrderHistory() {
 			case "customer_name":
 				orders.sort( (a,b) => {
 					
-					const userA = userLookup[a.userId];
-					const userB = userLookup[b.userId];
+					const userA = users.find((user) => user._id === a.userId);
+					const userB = users.find((user) => user._id === b.userId);
 					
-					if (userA.last == userB.last) {
+					console.log(userA.firstName);
+					console.log(userB.lastName);
+					
+					if (userA.lastName === userB.lastName) {
 						
-						if (userA.first == userB.first) return 0;
-						if (userA.first < userB.first) return -1;
+						if (userA.firstName === userB.firstName) return 0;
+						if (userA.firstName < userB.firstName) return -1;
 						return 1;
 						
 					}
 					
 					else {
-						if (userA.last < userB.last) return -1;
+						if (userA.lastName < userB.lastName) return -1;
 						return 1;
 					}
 				});
@@ -172,9 +180,6 @@ export default function OrderHistory() {
 		updateSortType("most_recent");
 		
 		getUsers();
-		for (const user in users){
-			userLookup[user._id] = {first: user.firstName, last: user.lastName}
-		}
 		
 	}, []);
 	
@@ -235,8 +240,9 @@ export default function OrderHistory() {
 				<TableHead>
 					<TableRow>
 						<TableCell align="left"> ID </TableCell>
-						<TableCell align="right"> User ID </TableCell>
+						<TableCell align="center"> User ID </TableCell>
 						<TableCell align="center"> Items </TableCell>
+						<TableCell align="center"> Total Price </TableCell>
 						<TableCell align="right"> Date Placed </TableCell>
 						<TableCell align="right"> Date Fulfilled </TableCell>
 					</TableRow>

@@ -58,6 +58,7 @@ function OrderRow(props) {
 							<Product product = {product}/>
 					))}
 				</TableCell>
+				<TableCell align="center"> {order.total} </TableCell>
 				<TableCell align="right"> {order.datePlaced.split("T")[0]} </TableCell>
 				<TableCell align="center">
 					<IconButton
@@ -115,6 +116,7 @@ export default function CurrentOrders() {
 						<TableCell align="left"> ID </TableCell>
 						<TableCell align="right"> User ID </TableCell>
 						<TableCell align="center"> Items </TableCell>
+						<TableCell align="right"> Total Price </TableCell>
 						<TableCell align="right"> Date Placed </TableCell>
 						<TableCell align="center"> Mark Complete </TableCell>
 					</TableRow>
