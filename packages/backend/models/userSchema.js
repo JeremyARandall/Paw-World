@@ -12,7 +12,10 @@ const userSchema = mongoose.Schema({
 		productId: Number,
 		quantity: Number
 	}],
-	isAdmin: Boolean
+	isAdmin: {
+		type: Boolean,
+		default: false
+	}
 });
 
 const User = mongoose.model('User', userSchema);
