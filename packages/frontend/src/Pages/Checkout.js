@@ -35,23 +35,7 @@ export default function Checkout() {
         datePlaced: new Date()
     });
 
-    const [productData, setProductData] = useState({
-        name: '',
-        description: '',
-        brand: '',
-        price: "",
-        tags: [],
-        productImage: '',
-        stockRemaining: ""
-    });
 
-
-    /*const [price, setPrice] = useState({
-        subtotal: cartItems.reduce((a, c) => a + c.price * c.quantity, 0),
-        taxes: Math.round((cartItems.reduce((a, c) => a + c.price * c.quantity, 0) * 0.0825 + Number.EPSILON) * 100) / 100,
-        total: Math.round((cartItems.reduce((a, c) => a + c.price * c.quantity, 0) * 1.0825 + Number.EPSILON) * 100) / 100,
-    })
-*/
     const updateStock = async (item) => {
         try {
             //const { data } = await api.fetchProductById(item._id);
@@ -92,23 +76,26 @@ export default function Checkout() {
     */
 
     const applyDiscountCode = async (e) => {
-        /*  e.preventDefault();
-          try {
-              const { data } = await api.fetchDiscountByName(discount);
-              var percent = data.percent;
-              cartItems.map((item) =>
-                  data.productIds.indexOf(item._id) > -1 ?
-                      (setPrice({
-                          price.subtotal = 
-                      })) : "");
-     
-     
-     
-     
-          } catch (err) {
-              alert('Invalid discount code');
-          }
-          */
+        e.preventDefault();
+        try {
+            const { data } = await api.fetchDiscountByName(discount);
+            ;
+            ctxDispatch({
+                type: 'APPLY_DISCOUNT', payload: {
+                    percent: data.percent,
+                    subtotal: cart.subtotal,
+                    tax: cart.tax,
+                    total: cart.total
+                }
+            });
+
+
+
+
+        } catch (err) {
+            alert('Invalid discount code');
+        }
+
     }
 
 

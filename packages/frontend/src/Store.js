@@ -40,7 +40,13 @@ function reducer(state, action) {
         case 'USER_SIGNOUT':
             return { ...state, userInfo: null }
         case 'CLEAR_CART_STOCK':
-            return { ...state, cart: { ...state.cart, cartItems: [] } };
+            return { ...state, cart: { ...state.cart, cartItems: [], total: 0, tax: 0, subtotal: 0 } };
+        case 'APPLY_DISCOUNT':
+            const p = action.payload;
+            const newSub = Math.round(((p.subtotal * (100 - p.percent) / 100) + Number.EPSILON) * 100) / 100;
+            const newTax = Math.round((newSub * 0.0825 + Number.EPSILON) * 100) / 100;
+            const newTotal = newTax + newSub;
+            return { ...state, cart: { ...state.cart, subtotal: newSub, tax: newTax, total: newTotal, } };
         default:
             return state;
     }
