@@ -52,6 +52,26 @@ function UserEditor(props) {
 				/>
 				
 				<TextField
+					label = "New First Name"
+					fullWidth
+					margin = "dense"
+					value = {userData.firstName}
+					onChange = {
+						(e) => setUserData({ ...userData, firstName: e.target.value })
+					}
+				/>
+				
+				<TextField
+					label = "New Last Name"
+					fullWidth
+					margin = "dense"
+					value = {userData.lastName}
+					onChange = {
+						(e) => setUserData({ ...userData, lastName: e.target.value })
+					}
+				/>
+				
+				<TextField
 					label = "New Email"
 					fullWidth
 					margin = "dense"
@@ -136,6 +156,8 @@ function UserRow(props) {
 				
 				<TableCell align="left"> {user._id} </TableCell>
 				<TableCell align="right"> {user.username} </TableCell>
+				<TableCell align="right"> {user.firstName} </TableCell>
+				<TableCell align="right"> {user.lastName} </TableCell>
 				<TableCell align="right"> {user.email} </TableCell>
 				<TableCell align="right"> {user.phone} </TableCell>
 				<TableCell align="right"> {String(user.isAdmin)} </TableCell>
@@ -199,6 +221,8 @@ export default function ModifyUser() {
 						<TableCell/>
 						<TableCell align="left"> ID </TableCell>
 						<TableCell align="right"> Username </TableCell>
+						<TableCell align="right"> First </TableCell>
+						<TableCell align="right"> Last </TableCell>
 						<TableCell align="right"> Email </TableCell>
 						<TableCell align="right"> Phone </TableCell>
 						<TableCell align="right"> Admin </TableCell>
