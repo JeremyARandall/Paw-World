@@ -66,18 +66,6 @@ function OrderRow(props) {
 
 export default function OrderHistory() {
 
-	/*var userLookup = async () => {
-
-		usersDispatch({ type: 'FETCH_REQUEST' });
-
-		try {
-			const result = await api.fetchUsers();
-			usersDispatch({ type: 'FETCH_SUCCESS', payload: result.data });
-		} catch (err) {
-			usersDispatch({ type: 'FETCH_FAIL', payload: err.message });
-		}
-	}; */
-
 	const [sortType, setSortType] = useState();
 
 	const updateSortType = (newSortType) => {
