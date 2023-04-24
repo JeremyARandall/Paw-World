@@ -60,7 +60,6 @@ export default function NavBar() {
                         </Link>
                     }
                     <SearchBox />
-
                 </Grid >
             </Card >
         </nav >
