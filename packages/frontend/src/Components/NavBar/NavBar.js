@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link, Navigate, useMatch, useNavigate } from "react-router-dom"
 import { Store } from "../../Store";
 import './NavBar.css';
+import SearchBox from "../SearchBox/SearchBox";
 
 export default function NavBar() {
 
@@ -58,6 +59,7 @@ export default function NavBar() {
                             Login
                         </Link>
                     }
+                    <SearchBox />
 
                 </Grid >
             </Card >

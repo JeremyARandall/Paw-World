@@ -34,8 +34,8 @@ function Product(props) {
 
 	return (
 		<Stack
-			direction = "row"
-			spacing = {2}
+			direction="row"
+			spacing={2}
 		>
 			<Typography> ID: {product.productId}</Typography>
 			<Typography> Quantity: {product.quantity}</Typography>
@@ -52,8 +52,8 @@ function OrderRow(props) {
 			<TableCell align="left"> {order._id} </TableCell>
 			<TableCell align="center"> {order.userId} </TableCell>
 			<TableCell align="right">
-				{order.products.map( (product) => (
-					<Product product = {product} />
+				{order.products.map((product) => (
+					<Product product={product} />
 				))}
 			</TableCell>
 			<TableCell align="center"> {order.total} </TableCell>
@@ -73,15 +73,15 @@ export default function OrderHistory() {
 	}
 
 	const sortOrders = (sortMethod) => {
-	
-	// -1: a is before b
-	//  1: a is after b
-	//  0: maintain order
-	
-		switch (sortMethod){
-			
+
+		// -1: a is before b
+		//  1: a is after b
+		//  0: maintain order
+
+		switch (sortMethod) {
+
 			case "most_recent":
-				orders.sort( (a,b) => {
+				orders.sort((a, b) => {
 					if (a.datePlaced > b.datePlaced) return -1;
 					if (a.datePlaced < b.datePlaced) return 1;
 					return 0;
@@ -111,7 +111,7 @@ export default function OrderHistory() {
 
 			case "most_expensive":
 				orders.sort((a, b) => {
-					if (a.total == b.total) return 0;
+					if (a.total === b.total) return 0;
 					if (a.total > b.total) return -1;
 					return 1;
 				});
@@ -119,7 +119,7 @@ export default function OrderHistory() {
 
 			case "least_expensive":
 				orders.sort((a, b) => {
-					if (a.total == b.total) return 0;
+					if (a.total === b.total) return 0;
 					if (a.total < b.total) return -1;
 					return 1;
 				});
@@ -226,22 +226,22 @@ export default function OrderHistory() {
 				</Button>
 			</Stack>
 
-			<TableContainer align = "center">
+			<TableContainer align="center">
 
 				<TableHead>
 					<TableRow>
-						<TableCell align = "left"> ID </TableCell>
-						<TableCell align = "center"> User ID </TableCell>
-						<TableCell align = "center"> Items </TableCell>
-						<TableCell align = "center"> Total Price </TableCell>
-						<TableCell align = "right"> Date Placed </TableCell>
-						<TableCell align = "right"> Date Fulfilled </TableCell>
+						<TableCell align="left"> ID </TableCell>
+						<TableCell align="center"> User ID </TableCell>
+						<TableCell align="center"> Items </TableCell>
+						<TableCell align="center"> Total Price </TableCell>
+						<TableCell align="right"> Date Placed </TableCell>
+						<TableCell align="right"> Date Fulfilled </TableCell>
 					</TableRow>
 				</TableHead>
 
 				<TableBody>
-					{orders.map( (order) => (
-						<OrderRow order = {order}/>
+					{orders.map((order) => (
+						<OrderRow order={order} />
 					))}
 				</TableBody>
 

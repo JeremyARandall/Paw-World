@@ -1,14 +1,14 @@
-import { Avatar, Button, Grid, Paper, TextField, Typography } from '@mui/material'
+import { Avatar, Grid, Paper, } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link, useNavigate, useMatch, redirect, useLocation } from "react-router-dom"
+import { Link, useNavigate, useLocation } from "react-router-dom"
 import PetsIcon from '@mui/icons-material/Pets';
 import { Store } from '../Store';
 
 
 function Login() {
     const navigate = useNavigate();
-    const [email, setEmail] = useState("");
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -16,13 +16,13 @@ function Login() {
     const { userInfo } = state;
     const [validationErrors, setValidationErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const signupMatch = useMatch("/signup");
+
 
     const { search } = useLocation();
     const redirectURL = new URLSearchParams(search).get('redirect');
     const redirect = redirectURL ? redirectURL : '/';
     useEffect(() => {
-        if (localStorage.getItem('userInfo') != "" && localStorage.getItem('userInfo') != null) {
+        if (localStorage.getItem('userInfo') !== "" && localStorage.getItem('userInfo') != null) {
             navigate(`${redirect}`);
         }
         console.log(localStorage.getItem('userInfo'))
@@ -66,7 +66,7 @@ function Login() {
 
 
     return (
-        <Grid container justifyContent="center" alignItems="center" style={{ height: '100vh',backgroundColor: '#375c8f'}}>
+        <Grid container justifyContent="center" alignItems="center" style={{ height: '100vh', backgroundColor: '#375c8f' }}>
             <Paper elevation={20} style={paperStyle}>
                 <Grid align='center'>
                     <Avatar style={avatarStyle}>

@@ -1,3 +1,4 @@
+import expressAsyncHandler from 'express-async-handler';
 import Product from '../models/productSchema.js';
 
 export const createProduct = async (req, res) => {
@@ -26,8 +27,38 @@ export const getProducts = async (req, res) => {
 	}
 };
 
+export const searchProducts = expressAsyncHandler(async (req, res) => {
+
+
+	const { query } = req;
+	const order = query.order;
+	const searchQuery = query.query;
+	const queryFilter =
+		searchQuery && searchQuery !== 'all'
+			? {
+				tags: {
+					$regex: searchQuery,
+					$options: 'i',
+				},
+			} : {};
+	const sortOrder =
+		order === 'lowest'
+			? { price: 1 }
+			: order === 'highest'
+				? { price: -1 }
+				: order === 'most'
+					? { stockRemaining: -1 }
+					: order === 'fewest'
+						? { stockRemaining: 1 }
+						: { _id: -1 };
+
+	const products = await Product.find({ ...queryFilter }).sort(sortOrder);
+	res.status(200).json(products);
+
+});
+
 export const getProductById = async (req, res) => {
-	
+
 	try {
 		const product = await Product.findById(req.params.id);
 		if (product) {
@@ -45,10 +76,10 @@ export const updateProductById = async (req, res) => {
 
 	const { id } = req.params;
 	const { name, description, brand, price, tags, productImage, stockRemaining, dateCreated } = req.body;
-	const updated = { name, description, brand, price, tags, productImage, stockRemaining, dateCreated, _id: id};
+	const updated = { name, description, brand, price, tags, productImage, stockRemaining, dateCreated, _id: id };
 
-	try{
-		await Product.findByIdAndUpdate(id, updated, {new: true});
+	try {
+		await Product.findByIdAndUpdate(id, updated, { new: true });
 		res.status(200).json(updated);
 	}
 	catch (error) {
@@ -58,10 +89,10 @@ export const updateProductById = async (req, res) => {
 };
 
 export const deleteProductById = async (req, res) => {
-	
+
 	const { id } = req.params;
 
-	try{
+	try {
 		await Product.findByIdAndDelete(id);
 		res.status(200).json(updated);
 	}

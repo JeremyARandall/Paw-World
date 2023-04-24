@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useState } from 'react';
 import { Avatar, Button, Grid, Paper, TextField, Typography } from '@mui/material';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import * as api from '../api';
@@ -67,7 +67,7 @@ const Signup = () => {
               <TextField fullWidth label="First Name" style={textFieldStyle} value={userData.firstName} onChange={(e) => setUserData({ ...userData, firstName: e.target.value })} />
               <TextField fullWidth label="Last Name" style={textFieldStyle} value={userData.lastName} onChange={(e) => setUserData({ ...userData, lastName: e.target.value })} />
               <TextField fullWidth label="Phone" style={textFieldStyle} value={userData.phone} onChange={(e) => setUserData({ ...userData, phone: e.target.value })} />
-              <TextField fullWidth label="Password" style={textFieldStyle} value={userData.passwordHash} onChange={(e) => setUserData({ ...userData, passwordHash: e.target.value })} />
+              <TextField fullWidth type="password" label="Password" style={textFieldStyle} value={userData.passwordHash} onChange={(e) => setUserData({ ...userData, passwordHash: e.target.value })} />
               <Button type="submit" variant="contained" color="primary" fullWidth>
                 Sign Up
               </Button>

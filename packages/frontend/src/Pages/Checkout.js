@@ -23,7 +23,7 @@ export default function Checkout() {
         subtotal: cart.subtotal,
         tax: cart.taxes,
         total: cart.total,
-        dicount: '',
+        discount: '',
         Address1: '',
         Address2: '',
         Apt: null,

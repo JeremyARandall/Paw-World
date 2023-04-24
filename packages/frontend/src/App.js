@@ -14,6 +14,7 @@ import ProductPage from './Pages/ProductPage';
 import { Store } from './Store';
 import NavBar from './Components/NavBar/NavBar';
 import Login from './Pages/login';
+import Search from './Pages/Search';
 //import useStyles from './styles';
 
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path='/' element={<ProductsPage />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path='/search' element={<Search />} />
 
           </Routes>
         </main>
