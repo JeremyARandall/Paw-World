@@ -13,9 +13,9 @@ export default function SearchBox() {
     };
 
     return (
-        <Grid id='searchWrapper'>
+        <Grid className='searchBoxGrid' id='searchWrapper'>
             <form onSubmit={submitHandler}>
-                <TextField type="text" aria-label="search-products" aria-describedby='search-button' value={query} placeholder="search products" onChange={(e) => setQuery(e.target.value)}>
+                <TextField className="textFieldSearchBar" type="text" aria-label="search-products" aria-describedby='search-button' value={query} placeholder="search products" onChange={(e) => setQuery(e.target.value)}>
                 </TextField>
                 <IconButton className='search-button' id='search-button' type='submit' color='primary'>
                     <SearchIcon />

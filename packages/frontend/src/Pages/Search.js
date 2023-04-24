@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useReducer } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import Product from '../Components/Product/Product';
+import './Search.css';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -60,7 +61,7 @@ export default function Search() {
                 <div>{error}</div>
             ) : (
                 <Grid container className='searchWrapper'>
-                    <Typography>Sort By: </Typography>
+                    <Typography className='sortByWrapper'>Sort By: </Typography>
                     <select value={order} onChange={(e) => { navigate(getFilterURL({ order: e.target.value })) }}>
                         <option value="lowest">Price: Lowest to Highest</option>
                         <option value="highest">Price: Highest to Lowest</option>

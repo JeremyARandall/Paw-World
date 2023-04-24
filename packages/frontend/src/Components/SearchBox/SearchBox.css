@@ -1,3 +1,87 @@
-.search-button {
-    color: white;
+@media ( min-width: 200px ) 
+{
+    .textFieldSearchBar
+    {
+        width: 90px;
+    }
+}
+  
+@media ( min-width: 480px ) 
+{
+    .textFieldSearchBar
+    {
+        width: 160px;
+    }
+}
+
+@media ( min-width: 800px )  
+{
+    .textFieldSearchBar
+    {
+        width: 160px;
+    }
+}
+
+@media ( min-width: 1024px ) 
+{
+    .textFieldSearchBar
+    {
+        width: 160px;
+    }
+}
+
+@media ( min-width: 1200px ) 
+{
+    .textFieldSearchBar
+    {
+        width: 160px;
+    }
+}
+
+.search-button 
+{
+    color: black !important;
+    height: 28px !important;
+}
+
+.searchBoxGrid
+{
+    font-size: 15px !important;
+    text-align: left !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    border-radius: 2rem !important;
+    height: 28px !important;
+    background-color:#f3f8ff !important;
+    margin-top: 0.0547rem !important;
+}
+
+.MuiInputBase-root .MuiInputBase-input 
+{
+    font-size: 15px !important;
+    align-items: left !important;
+    font-weight: bold !important;
+    padding-top: 0.25rem;
+}
+
+.MuiInputBase-root .MuiIconButton-root 
+{
+    font-size: 15px !important;
+    align-items: left !important;
+    font-weight: bold !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline 
+{
+    border-color: transparent !important;
+}
+
+.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline 
+{
+    border-color: transparent !important;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline 
+{
+    border-color: transparent !important;
 }
