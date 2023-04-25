@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useReducer} from "react";
-import {TableContainer, TableHead, TableBody, TableRow, TableCell, Typography, IconButton, Box, Container, Stack, Button, TextField, Alert, Collapse} from '@mui/material'
+import {TableContainer, TableHead, TableBody, TableRow, TableCell, Typography, IconButton, Box, Container, Stack, Button, TextField, Alert, Collapse, FormControlLabel, Switch} from '@mui/material'
 import {ExpandMore, ExpandLess} from '@mui/icons-material'
 import logger from 'use-reducer-logger';
 import * as api from '../../../api';
@@ -21,6 +21,7 @@ function UserEditor(props) {
 	
 	const {user} = props;
 	const [userData, setUserData] = useState(user);
+	const [checked, setChecked] = useState(userData.isAdmin === true);
 	
 	const [successAlertOpen, setSuccessAlertOpen] = useState(false);
 	const [errorAlertOpen, setErrorAlertOpen] = useState(false);
@@ -89,6 +90,21 @@ function UserEditor(props) {
 					onChange = {
 						(e) => setUserData({ ...userData, phone: e.target.value })
 					}
+				/>
+				
+				<FormControlLabel
+					control = {
+						<Switch
+							checked = {checked}
+							onChange = {
+								(e) => {
+									setChecked(!checked);
+									setUserData({ ...userData, isAdmin: String(e.target.checked) });
+								}
+							}
+						/>
+					}
+					label="Is Admin"
 				/>
 				
 				<Stack
