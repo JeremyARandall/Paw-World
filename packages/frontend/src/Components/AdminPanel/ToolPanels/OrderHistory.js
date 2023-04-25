@@ -29,17 +29,20 @@ const usersReducer = (state, action) => {
 	}
 }
 
-function Product(props) {
+function Product(props){
 	const { product } = props;
-
+	
 	return (
 		<Stack
-			direction="row"
-			spacing={2}
+			direction = "row"
+			spacing = {2}
 		>
-			<Typography> ID: {product.productId}</Typography>
-			<Typography> Quantity: {product.quantity}</Typography>
-			<Typography> Price: {product.price}</Typography>
+			<Typography>ID:</Typography>
+			<Typography>{product._id}</Typography>
+			<Typography>Amount:</Typography>
+			<Typography>{product.quantity}</Typography>
+			<Typography>Price:</Typography>
+			<Typography>{product.price}</Typography>
 		</Stack>
 	);
 }
