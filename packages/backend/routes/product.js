@@ -1,10 +1,13 @@
 import express from 'express';
-import { getProducts, createProduct, getProductById } from '../controllers/product.js';
+import { searchProducts, createProduct, getProducts, getProductById, updateProductById, deleteProductById } from '../controllers/product.js';
 
 const router = express.Router();
 
+router.post('/', createProduct);
 router.get('/', getProducts);
-router.get('/id/:id', getProductById); //searces for the object at localhost:5000/products/id/$id to get the single, calling getProductById to do so
-router.post('/', createProduct)
+router.get('/id/:id', getProductById);
+router.patch('/id/:id', updateProductById);
+router.delete('/id/:id', deleteProductById);
+router.get('/search', searchProducts);
 
 export default router;

@@ -3,15 +3,22 @@ import mongoose from 'mongoose';
 const userSchema = mongoose.Schema({
 	username: String,
 	passwordHash: String,
+	salt: String,
+	firstName: String,
+	lastName: String,
 	email: String,
-	phone: Number,
+	phone: String,
 	cart: [{
 		productId: Number,
 		quantity: Number
 	}],
-	isAdmin: boolean
+	isAdmin: {
+		type: Boolean,
+		default: false
+	}
 });
 
 const User = mongoose.model('User', userSchema);
 
 export default User;
+

@@ -1,11 +1,13 @@
-import React, { useContext, useEffect, useReducer, } from 'react';
+import React, { useContext, useEffect, useReducer } from 'react';
 import Product from '../Components/Product/Product';
 import * as api from '../api';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import './Pages.css';
 import {
 
   Button,
   Grid,
+  Box,
 
 } from '@mui/material';
 import logger from 'use-reducer-logger'; //logs State in console for devtools
@@ -32,6 +34,7 @@ const reducer = (state, action) => {
 }
 
 const ProductPage = () => {
+  const navigate = useNavigate();
   const { id } = useParams(); //fetches the id URI segment
   console.log(`${id}`); //for debugging api requests
 
@@ -63,19 +66,28 @@ const ProductPage = () => {
     const { data } = await api.fetchProductById(id);
     if (data.stockRemaining < quantity) {
       window.alert('Sorry, the product is out of stock');
+      return;
     }
     ctxDispatch({ type: 'ADD_TO_CART', payload: { ...product, quantity } })
+    navigate('/cart');
   }
   return ( //if loading is true, display "Loading", display error if error encountered (404, 500, etc), otherwise created a <Grid> embedding a <Product>
     loading ? (
-      <div>Loading...</div>
+      <div className="loading"></div>
     ) : error ? (
       <div>{error}</div>
     ) : (
-      <Grid container>
-        <Product product={product} />
-        <Button onClick={addToCartHandler}> Add to Cart</Button>
-      </Grid>
+      <div className="ProductPageDiv" >
+        <Grid container className="productPageGrid">
+          <Box className="productPageBox">
+            <Product product={product} />
+            <Button onClick={addToCartHandler} className="addToCartButton" >Add to Cart</Button>
+          </Box>
+          <Box className="descriptionProdPage">
+            <div className='description'>{product.description}</div>
+          </Box>
+        </Grid>
+      </div>
     )
   );
 };
