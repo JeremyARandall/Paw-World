@@ -34,7 +34,7 @@ export default function NavBar() {
 
                 <Grid className="NavBarGrid">
 
-                    <Link className={`navLink ${productsMatch ? "active" : ""}`} to="/products">
+                    <Link className={`navLink ${productsMatch ? "active" : ""}`} to="/search">
                         Products
                     </Link>
 
