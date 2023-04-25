@@ -30,7 +30,7 @@ app.use((err, req, res, next) => {
     res.status(500).send({ message: err.message })
 })
 
-const CONNECTION_URL = "mongodb+srv://Dev:klhMJYV0DbUsApH3@cluster0.vaxsq2h.mongodb.net/?retryWrites=true&w=majority";
+const CONNECTION_URL = "mongodb+srv://cluster0.wucfywj.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
